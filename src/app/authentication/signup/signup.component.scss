@@ -1,0 +1,53 @@
+/* Official Form Container */
+.official-form {
+  max-width: 600px; /* Limit the form width for better readability */
+  margin: 0 auto; /* Center the form */
+  padding: 20px; /* Add some padding around the form */
+  background-color: #f8f9fa; /* Light background color */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+ }
+ 
+ /* Official Form Title */
+ .signup-title {
+  text-align: center; /* Center the title */
+  color: #343a40; /* Darker text for emphasis */
+  font-size: 24px; /* Larger font size */
+  margin-bottom: 20px; /* Space between the title and the form fields */
+ }
+ 
+ /* Official Form Fields */
+ mat-form-field {
+  width: 100%; /* Full width fields */
+  margin-bottom: 15px; /* Space between fields */
+ }
+ 
+ /* Official Button */
+ button[mat-raised-button] {
+  width: 100%; /* Full width button */
+  background-color:maroon; /* Official blue */
+  color: white; /* White text */
+  border-radius: 4px; /* Rounded corners */
+  font-weight: bold; /* Bold text */
+  margin-top: 20px; /* Space above the button */
+ }
+ 
+ /* Official Links */
+ .sign-in-link {
+  text-align: center; /* Center the link */
+  color: maroon; /* Official blue */
+  font-size: 14px; /* Smaller font size for the link */
+  margin-top: 15px; /* Space above the link */
+ }
+ 
+ /* Optional: Add hover effect to the button */
+ button[mat-raised-button]:hover {
+  background-color: maroon; /* Darker blue on hover */
+ }
+ 
+ /* Optional: Add focus effect to the button */
+ button[mat-raised-button]:focus {
+  outline: none; /* Remove default outline */
+  box-shadow: maroon; /* Custom focus outline */
+ }
+ 

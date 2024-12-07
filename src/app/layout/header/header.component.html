@@ -1,0 +1,48 @@
+<nav #navbar class="navbar active">
+  <div class="container-fluid bg wbg">
+    <div class="navbar-header bg">
+      <button type="button" class="navbar-toggle collapsed"
+         (click)="isNavbarCollapsed = !isNavbarCollapsed" aria-expanded="false">
+        <!-- Add icon for collapsed navbar -->
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" routerLink={{homePage}}>
+        <img src="assets/images/em.jpg" width="30px" height="30px" alt="" />
+        <span class="logo-name">Equifarm</span>
+      </a>
+    </div>
+
+    <!-- Collapsible navbar content -->
+    <div class="collapse navbar-collapse" [ngbCollapse]="isNavbarCollapsed">
+      <ul class="float-start collapse-menu-icon">
+        <li>
+          <button mat-icon-button (click)="callSidemenuCollapse()" class="sidemenu-collapse">
+            <app-feather-icons [icon]="'menu'" [class]="'header-icon'"></app-feather-icons>
+          </button>
+        </li>
+      </ul>
+
+      
+
+    <!-- Header Message Section -->
+    <div class="header-message" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 0;">
+      <h3 style="margin: 0; font-size: 20px; font-weight: bold;">Today's Tracking</h3>
+      <p style="margin: 0; font-size: 14px;">{{ currentDate }}</p>
+      <p style="margin: 0; font-size: 14px;">Welcome, Admin!</p>
+    </div>
+
+
+        <!-- User Profile Dropdown -->
+         <!-- <ul> -->
+        <!-- <li class="icon-container"> -->
+          <!-- <button mat-icon-button (click)="openUserProfileDropdown()">
+            <img src="assets/images/em.jpg" class="user-img" width="20" height="20" alt="User">
+            <span>{{ email }}</span>
+          </button> -->
+        <!-- </li> -->
+      <!-- </ul> -->
+    </div>
+  </div>
+</nav>

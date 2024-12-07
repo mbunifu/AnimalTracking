@@ -1,0 +1,64 @@
+<section class="content">
+    <div class="content-block">
+        <div class="block-header">
+            <div class="col-sm-12">
+                <h1 class="text-center">Warehouseonboarding</h1>
+                <div class="tab d-flex" style="width: 100%;">
+                    <button class="tablinks h5" routerLink="/onboarding/warehouse/personal-information">Biographical Data</button>
+                    <button class="tablinks h5" routerLink="/onboarding/warehouse/academic-background">Academic Credentials </button>
+                    <button class="tablinks h5" routerLink="/onboarding/warehouse/business-information">Business-Information</button>
+                    <button class="tablinks h5" routerLink="/onboarding/warehouse/bank-details">Bank-Details</button>
+                    <!--<button class="tablinks h5" routerLink="/enrollments/farmer/bovine-biosphere">Bovine Biosphere</button>
+                    <button class="tablinks h5" routerLink="/enrollments/farmer/agrigrowth-spectrum">Agrigrowth spectrum</button>
+                    <button class="tablinks h5" routerLink="/enrollments/farmer/aggregator-haven">Aggregator Haven</button>
+                    <button class="tablinks h5" routerLink="/enrollments/farmer/finances">Finances</button>
+                    <button class="tablinks h5" routerLink="/enrollments/farmer/insight-vault">Insight vault</button>-->
+                </div>
+            </div>
+  
+  
+            <legend><h3> Section G: Aggregator Haven</h3></legend>
+  <label>43. What is the name of the aggregator you sell your produce to?</label>
+  <input type="text" class="form-control">
+  </div>
+  
+  <div class="form-group">
+  <label>44. Do you sell your produce to any middlemen or brokers?</label>
+  <form>
+      <label>
+          <input type="radio" name="produce" value="yes">
+           Yes
+      </label>
+      <br>
+      <label>
+          <input type="radio" name="produce" value="no">
+           No
+      </label>
+  </form>
+  </div>
+  
+  <div class="form-group">
+  <label>45. What is the name of middlemen or broker  you sell your produce to?</label>
+  <input type="text" class="form-control">
+  </div>
+  
+  <div class="form-group">
+  <label>46. Do you sell your produce to any group?</label>
+  <form>
+      <label>
+          <input type="radio" name="produce" value="yes">
+           Yes
+      </label>
+      <br>
+      <label>
+          <input type="radio" name="produce" value="no">
+           No
+      </label>
+  </form>
+  </div>
+  
+  <div class="form-group">
+  <label>47. What is the name of other person or group you sell your produce to?</label>
+  <input type="text" class="form-control">
+  <button type="next" class="btn btn-primary"  (click)="navigateToNext()">next</button>
+  </div>

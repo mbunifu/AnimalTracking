@@ -1,0 +1,91 @@
+<div class="settingSidebar" [ngClass]="isOpenSidebar ? 'showSettingPanel' : ''">
+  <!-- Setting Panel Toggle -->
+  <a href="javascript:void(0)" class="settingPanelToggle" (click)="toggleRightSidebar()">
+    <app-feather-icons [icon]="'list'" [class]="'setting-sidebar-icon'"></app-feather-icons>
+  </a>
+  <!-- Setting Sidebar Body -->
+  <div class="settingSidebar-body ps-container ps-theme-default"
+    [ngStyle]="{'position' : 'relative', 'max-height' : maxHeight+'px', 'max-width' : maxWidth+'px'}"
+    [perfectScrollbar]>
+    <!-- Setting Panel Content -->
+    <div class="fade show active">
+      <!-- Setting Panel Header -->
+      <div class="setting-panel-header">Categories</div>
+      <!-- Category Segment -->
+      <div class="p-15 border-bottom">
+        <h6 class="category-heading">Farm Inputs</h6>
+        <div class="category-options">
+          <!-- Example category options -->
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a routerLink="/farm-inputs/seeds">Seeds</a>
+            </li>
+            <li>
+              <a routerLink="/farm-inputs/fertilizers">Fertilizers</a>
+            </li>
+            <li>
+              <a routerLink="/farm-inputs/chemicals">Chemicals</a>
+            </li>
+            <li>
+              <a routerLink="/farm-inputs/feeds">Feeds</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="p-15 border-bottom">
+        <h6 class="category-heading">Products</h6>
+        <div class="category-options">
+          <!-- Example category options -->
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a routerLink="/products/cereals">Cereals</a>
+            </li>
+            <li>
+              <a routerLink="/products/legumes">Legumes</a>
+            </li>
+            <li>
+              <a routerLink="/products/tubers">Tubers</a>
+            </li>
+            <li>
+              <a routerLink="/products/fruits">Fruits</a>
+            </li>
+            <li>
+              <a routerLink="/products/vegetables">Vegetables</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="p-15 border-bottom">
+        <h6 class="category-heading">Farm Machinery</h6>
+        <div class="category-options">
+          <!-- Example category options -->
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a routerLink="/farm-machinery/manual">Manual</a>
+            </li>
+            <li>
+              <a routerLink="/farm-machinery/automated">Automated</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="p-15 border-bottom">
+        <h6 class="category-heading">Livestock</h6>
+        <div class="category-options">
+          <!-- Example category options -->
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a routerLink="/livestock/dairy">Dairy</a>
+            </li>
+            <li>
+              <a routerLink="/livestock/fish">Fish</a>
+            </li>
+            <li>
+              <a routerLink="/livestock/poultry">Poultry</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

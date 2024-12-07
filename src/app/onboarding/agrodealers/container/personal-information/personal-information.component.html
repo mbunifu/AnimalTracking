@@ -1,0 +1,151 @@
+<section class="content">
+  <div class="content-block">
+      <div class="block-header">
+          <div class="col-sm-12">
+              <h1 class="text-center">Agrodealers onboarding</h1>
+              <div class="tab d-flex" style="width: 100%;">
+                  <button class="tablinks h5" routerLink="/onboarding/agrodealers/personal-information">Biographical Data</button>
+                  <button class="tablinks h5" routerLink="/onboarding/agrodealers/academic-background">Academic Credentials </button>
+                  <button class="tablinks h5" routerLink="/onboarding/agrodealers/business-information">Business Information</button>
+                  <button class="tablinks h5" routerLink="/onboarding/agrodealers/bank-details">Bank Details</button>
+                  <!--<button class="tablinks h5" routerLink="/enrollments/farmer/bovine-biosphere">Bovine Biosphere</button>
+                  <button class="tablinks h5" routerLink="/enrollments/farmer/agrigrowth-spectrum">Agrigrowth spectrum</button>
+                  <button class="tablinks h5" routerLink="/enrollments/farmer/aggregator-haven">Aggregator Haven</button>
+                  <button class="tablinks h5" routerLink="/enrollments/farmer/finances">Finances</button>
+                  <button class="tablinks h5" routerLink="/enrollments/farmer/insight-vault">Insight vault</button>-->
+              </div>
+          </div>
+     
+  
+
+
+
+<div class="form-group">
+  <legend><h3> Section A:  Biographical data </h3></legend>
+    <label>1. Date of enrollment</label>
+    <input type="number" class="form-control">
+</div>
+
+<div class="form-group">
+    <label>2. Please indicate the name of the person keying in data</label>
+    <input type="text" class="form-control">
+</div>
+
+<div class="form-group">
+    <label>3. Please indicate both your names - Farmer or Representative </label>
+    <input type="tel" class="form-control">
+</div>
+<div class="form-group">
+    <label>4. Please indicate your sex </label>
+    <form>
+        <label>
+            <input type="radio" name="sex" value="Male">
+            Male
+        </label>
+        <br>
+        <label>
+            <input type="radio" name="sex" value="Female">
+            Female
+        </label>
+    </form>
+</div>
+
+
+<div class="form-group">
+    <label>5. Please indicate date of birth </label>
+      <form>
+    <label for="dob"></label>
+    <input type="date" id="dob" name="dob" min="1900-01-01" max="2099-12-31">
+        </form>
+</div>
+
+<div class="form-group">
+    <label>6. Please indicate ID Number</label>
+    <input type="number" class="form-control">
+</div>
+
+
+<div class="form-group">
+    <label>7. Telephone contact</label>
+    <input type="tel" class="form-control">
+</div>
+
+<div class="form-group">
+    <label>8. Other telephone contact</label>
+    <input type="tel" class="form-control">
+</div>
+
+
+<div class="form-group">
+    <label>9. Select County of residence :</label>
+    <body>
+        
+        <select id="countyDropdown">
+            <option value="" disabled selected></option>
+            <option value="Nairobi">Nairobi County</option>
+            <option value="Mombasa">Mombasa County</option>
+            <option value="Kisumu">Kisumu County</option>
+            <option value="Nakuru">Nakuru County</option>
+            <!-- Add more options for the remaining counties -->
+            <option value="Bomet">Bomet County</option>
+            <option value="Bungoma">Bungoma County</option>
+            <option value="Busia">Busia County</option>
+            <!-- Add the remaining counties here -->
+            <option value="West Pokot">West Pokot County</option>
+            <option value="Turkana">Turkana County</option>
+            <option value="Uasin Gishu">Uasin Gishu County</option>
+        </select>
+    </body>                              
+</div>
+<div class="form-group">
+    <label>10. Select County of Origin :</label>
+    <body>
+        
+        <select id="countyDropdown">
+            <option value="" disabled selected></option>
+            <option value="Nairobi">Nairobi County</option>
+            <option value="Mombasa">Mombasa County</option>
+            <option value="Kisumu">Kisumu County</option>
+            <option value="Nakuru">Nakuru County</option>
+            <!-- Add more options for the remaining counties -->
+            <option value="Bomet">Bomet County</option>
+            <option value="Bungoma">Bungoma County</option>
+            <option value="Busia">Busia County</option>
+            <!-- Add the remaining counties here -->
+            <option value="West Pokot">West Pokot County</option>
+            <option value="Turkana">Turkana County</option>
+            <option value="Uasin Gishu">Uasin Gishu County</option>
+        </select>
+    </body>                              
+</div>
+<div class="form-group">
+    <label>11. Sub-county of Residence  :</label>
+    <body>
+    <select id="subCountyDropdown">
+        <option value="" disabled selected></option>
+        <option value="Dagoretti North">Dagoretti North</option>
+        <option value="Dagoretti South">Dagoretti South</option>
+        <option value="Embakasi Central">Embakasi Central</option>
+        <option value="Embakasi East">Embakasi East</option>
+        <option value="Embakasi North">Embakasi North</option>
+        <option value="Embakasi South">Embakasi South</option>
+        <option value="Embakasi West">Embakasi West</option>
+        <option value="Kamukunji">Kamukunji</option>
+        <option value="Kasarani">Kasarani</option>
+        <option value="Kibra">Kibra</option>
+        <option value="Lang'ata">Lang'ata</option>
+        <option value="Makadara">Makadara</option>
+        <option value="Mathare">Mathare</option>
+        <option value="Nairobi West">Nairobi West</option>
+        <option value="Roysambu">Roysambu</option>
+        <option value="Ruaraka">Ruaraka</option>
+        <option value="Starehe">Starehe</option>
+        <option value="Westlands">Westlands</option>
+    </select>
+</body>
+</div>
+<button type="next" class="btn btn-primary"  (click)="navigateToNext()">next</button>
+
+</div>
+</div>
+</section>

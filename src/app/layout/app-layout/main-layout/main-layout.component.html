@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Application Title</title>
+    <style>
+        /* General reset and styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 250px; /* Sidebar occupies 250px width */
+            background-color: #f0f0f0;
+            flex-shrink: 0;
+        }
+
+        .right-sidebar {
+            width: 250px; /* Right Sidebar occupies 250px width */
+            background-color: #f0f0f0;
+            flex-shrink: 0;
+        }
+
+        .content {
+            flex: 1;
+            padding: 20px;
+            background-color: #fff; /* Content area's background */
+        }
+
+        app-header {
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 250px; /* Matches the sidebar's width */
+            right: 0;
+            background-color: #fff; /* Header background color */
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Optional shadow */
+            z-index: 10; /* Ensure the header stays above other elements */
+            padding: 10px 20px;
+        }
+
+        .main-content {
+            margin-top: 70px; /* Adjust for fixed header height */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <app-sidebar></app-sidebar>
+        </div>
+
+        <!-- Content Section -->
+        <div class="content">
+            <!-- Header -->
+            <app-header></app-header>
+
+            <!-- Main Content -->
+            <div class="main-content">
+                <div [dir]="direction">
+                    <router-outlet></router-outlet>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Sidebar -->
+        <div class="right-sidebar">
+            <app-right-sidebar></app-right-sidebar>
+        </div>
+    </div>
+</body>
+
+</html>

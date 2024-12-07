@@ -1,0 +1,82 @@
+<section class="content">
+    <div class="content-block">
+        <div class="block-header">
+            <div class="col-sm-12">
+                <h1 class="text-center">Transporters Onboarding</h1>
+                <div class="tab d-flex" style="width: 100%;">
+                    <button class="tablinks h5" routerLink="/onboarding/transporters/personal-information">Biographical Data</button>
+                    <button class="tablinks h5" routerLink="/onboarding/transporters/vehicle-details">Vehicle Details</button>
+                    <button class="tablinks h5" routerLink="/onboarding/transporters/location-details">Location Details</button>
+                    <button class="tablinks h5" routerLink="/onboarding/transporters/bank-details">Bank Details</button>
+                </div>
+            </div>
+        </div>
+        <!-- <form class="form-section" (submit)="submitForm()"> -->
+            <legend><h3>Section A: Biographical data</h3></legend>
+            <div class="form-group">
+                <label for="enrollmentDate">1. Date of enrollment</label>
+                <input type="date" id="enrollmentDate" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="dataKeyPerson">2. Key-in Data Person's Name</label>
+                <input type="text" id="dataKeyPerson" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="fullName">3. Full Name (Farmer or Representative)</label>
+                <input type="text" id="fullName" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>4. Sex</label>
+                <div>
+                    <label>
+                        <input type="radio" name="sex" value="Male">
+                        Male
+                    </label>
+                    <label>
+                        <input type="radio" name="sex" value="Female">
+                        Female
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="dob">5. Date of Birth</label>
+                <input type="date" id="dob" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="idNumber">6. ID Number</label>
+                <input type="number" id="idNumber" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="telephone">7. Telephone Contact</label>
+                <input type="tel" id="telephone" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="otherTelephone">8. Other Telephone Contact</label>
+                <input type="tel" id="otherTelephone" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>9. County of Residence</label>
+                <select id="countyResidence" class="form-control">
+                    <option value="" disabled selected>Select County</option>
+                    <!-- Options for counties -->
+                </select>
+            </div>
+            <div class="form-group">
+                <label>10. County of Origin</label>
+                <select id="countyOrigin" class="form-control">
+                    <option value="" disabled selected>Select County</option>
+                    <!-- Options for counties -->
+                </select>
+            </div>
+            <div class="form-group">
+                <label>11. Sub-county of Residence</label>
+                <select id="subCountyResidence" class="form-control">
+                    <option value="" disabled selected>Select Sub-county</option>
+                    <!-- Options for sub-counties -->
+                </select>
+            </div>
+           <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+            <button type="button" class="btn btn-primary" (click)="navigateToNext()">Next</button>
+        <!-- </form> -->
+    </div>
+</section>

@@ -1,0 +1,86 @@
+<form [formGroup]="signupForm" (ngSubmit)="onSubmit()" class="official-form">
+  <div class="signup-form-container">
+    <h2 class="signup-title">Create Your Account</h2>
+
+    <mat-form-field appearance="outline">
+      <mat-label>First Name</mat-label>
+      <input matInput formControlName="firstName" placeholder="First Name" required matTooltip="Enter your first name here.">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Last Name</mat-label>
+      <input matInput formControlName="lastName" placeholder="Last Name" required
+      matTooltip="Enter your last name here.">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>ID Number</mat-label>
+      <input matInput formControlName="IDNumber" placeholder="Enter ID Number" required
+      matTooltip="Enter your ID Number here.">
+    </mat-form-field>
+
+    
+    <mat-form-field appearance="outline">
+      <mat-label>Email Address</mat-label>
+      <input matInput formControlName="Email" placeholder="Enter Email Addrress" required
+      matTooltip="Enter your Email Address here.">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Phone Number</mat-label>
+      <input matInput formControlName="phoneNumber" placeholder="Phone Number" required
+      matTooltip="Enter your Phone Number here.">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Role</mat-label>
+      <mat-select formControlName="role" required>
+        <mat-option value="">Select a role...</mat-option>
+        <mat-option value="farmer">Farmer</mat-option>
+        <mat-option value="buyer">Buyer</mat-option>
+        <mat-option value="agroDealer">Agro Dealer</mat-option>
+        <mat-option value="serviceProvider">Service Provider</mat-option>
+        <mat-option value="transporter">Transporter</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Password</mat-label>
+      <input matInput type="password" formControlName="password" placeholder="Enter Password" required
+      matTooltip="Enter your Password here.">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Confirm Password</mat-label>
+      <input matInput type="password" formControlName="confirmPassword" placeholder="Confirm Password" required
+      matTooltip="Kindly confirm your Password here.">
+    </mat-form-field>
+
+    <div class="terms-and-conditions">
+      <mat-checkbox formControlName="termsAndConditions" required>
+        I agree to the <a href="#">Terms and Conditions</a>
+      </mat-checkbox>
+      <mat-checkbox formControlName="privacyPolicy" required>
+        I agree to the <a href="#">Privacy Policy</a>
+      </mat-checkbox>
+      <mat-checkbox formControlName="cookiesPolicy" required>
+        I agree to the <a href="#">Cookies Policy</a>
+      </mat-checkbox>
+    </div>
+    <div *ngIf="successMessage" class="alert alert-success">
+      {{ successMessage }}
+     </div>
+     
+    <button mat-raised-button color="Basic" type="submit" [disabled]="isLoading">
+      <span *ngIf="!isLoading">Sign Up</span>
+      <div *ngIf="errorMessage" class="alert alert-danger">
+        {{ errorMessage }}
+       </div>
+       
+    </button>
+
+    <p class="sign-in-link">
+      Already have an account? <a routerLink="/authentication/signin">Sign in</a>
+    </p>
+  </div>
+</form>
