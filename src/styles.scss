@@ -7,11 +7,11 @@ $MaterialIcons_FontPath: "~material-icons-font/fonts";
 
 .bg {
     // background: linear-gradient(to left, #9B2827, #fafafa);
-    background: linear-gradient(90deg, rgba(250,250,250,1) 0%, rgba(155,40,39,1) 50%);
+    background: linear-gradient(90deg, rgba(250,250,250,1) 0%, #fff 50%);
   }
   
   .bg1 {
-    background: linear-gradient(to right, #9B2827, #fafafa);
+    background: linear-gradient(to right, #fff, #fafafa);
   }
   
   .down {
@@ -19,7 +19,7 @@ $MaterialIcons_FontPath: "~material-icons-font/fonts";
   }
   
   .fg {
-    color: #9B2827;
+    color: #fff;
     font-weight: bolder;
   }
   
@@ -32,6 +32,6 @@ $MaterialIcons_FontPath: "~material-icons-font/fonts";
   }
   
   .wbg {
-    color: #fafafa;
+    color: #1a0d0d;
     font-weight: bolder;
   }
