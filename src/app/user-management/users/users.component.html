@@ -1,4 +1,12 @@
-<div style="padding: 16px; font-family: Arial, sans-serif;">
+<section class="content">
+  <div class="content-block">
+      <div class="block-header">
+          <!-- breadcrumb -->
+          <app-breadcrumb [title]="'Dashboard'" [items]="['Home']" [active_item]="'Dashboard'">
+          </app-breadcrumb>
+      </div>
+
+     <div style="padding: 16px; font-family: Arial, sans-serif;">
    
     <div style="display: flex; align-items: center; margin-bottom: 16px;">
       <mat-icon style="font-size: 28px; color: #000;">group</mat-icon>
@@ -36,4 +44,7 @@
       </mat-card>
     </div>
   </div>
-  
+  </div>
+</section>
+
+

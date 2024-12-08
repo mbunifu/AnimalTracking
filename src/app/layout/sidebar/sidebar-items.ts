@@ -82,11 +82,11 @@ export const ROUTES: RouteInfo[] = [
   },
  
   {
-    path: "./digital-training",
-    title: "digital training",
-    moduleName: "digital-training",
+    path: "./geographic-tracking/geotracking",
+    title: "Geographic Tracking",
+    moduleName: "geotracking",
     iconType: "feather",
-    icon: "pen-tool",
+    icon: "home",
     class: "",
     groupTitle: false,
     badge: "",
@@ -96,11 +96,11 @@ export const ROUTES: RouteInfo[] = [
   },
 
   {
-    path: "./marketplace",
-    title: "Market Place",
-    moduleName: "marketplace",
+    path: "./population-health/population",
+    title: "Population & Health",
+    moduleName: "population-health",
     iconType: "feather",
-    icon: "package",
+    icon: "users",
     class: "",
     groupTitle: false,
     badge: "",
