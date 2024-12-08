@@ -125,7 +125,7 @@ export const ROUTES: RouteInfo[] = [
     submenu: [],
   },
   {
-    path: "./user-management",
+    path: "./user-management/users",
     title: "User Management",
     moduleName: "user-management",
     iconType: "feather",
@@ -138,7 +138,7 @@ export const ROUTES: RouteInfo[] = [
     submenu: [
 
       {
-        path: "./user-management/users",
+        path: "./user-management/roles",
         title: "Users",
         moduleName: "user-management",
         iconType: "feather",
@@ -151,19 +151,19 @@ export const ROUTES: RouteInfo[] = [
         submenu: [],
       },
 
-      {
-        path: "./user-management/roles",
-        title: "Roles",
-        moduleName: "user-management",
-        iconType: "feather",
-        icon: "book-open",
-        class: "",
-        groupTitle: false,
-        badge: "",
-        badgeClass: "",
-        role: ["ADMIN"],
-        submenu: [],
-      },
+      // {
+      //   path: "./user-management/roles",
+      //   title: "Roles",
+      //   moduleName: "user-management",
+      //   iconType: "feather",
+      //   icon: "book-open",
+      //   class: "",
+      //   groupTitle: false,
+      //   badge: "",
+      //   badgeClass: "",
+      //   role: ["ADMIN"],
+      //   submenu: [],
+      // },
     ],
   },
 
