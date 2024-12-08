@@ -139,7 +139,7 @@ export const ROUTES: RouteInfo[] = [
 
       {
         path: "./user-management/roles",
-        title: "Users",
+        title: "Roles",
         moduleName: "user-management",
         iconType: "feather",
         icon: "user",
