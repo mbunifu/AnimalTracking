@@ -1,5 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
+
+import { AddUsersComponent } from '../add-users/add-users.component'; // Import AddUsersComponent
 
 @Component({
   selector: 'app-users',
@@ -29,10 +32,23 @@ export class UsersComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor() {}
+  constructor(private dialog : MatDialog) {}
 
   ngOnInit(): void {
     this.dataSource = this.dataSource;  
+  }
+
+  openAddUserDialog(): void {
+    const dialogRef = this.dialog.open(AddUsersComponent, {
+      width: '500px', // Adjust width as needed
+      height: 'auto', // Adjust height as needed
+      data: {} // Optional: Pass data if required
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed', result);
+      // Handle any logic after closing the dialog (e.g., refreshing the table)
+    });
   }
 
   verifyUser(id: number): void {

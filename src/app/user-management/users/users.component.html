@@ -116,7 +116,9 @@
             </mat-form-field>
           </div>
           <div class="col-sm-4">
-            <button mat-raised-button color="primary" style="border-radius: 55%; height: 50px;"><mat-icon>add_circle</mat-icon></button>
+            <button mat-raised-button color="primary" style="border-radius: 55%; height: 50px;" (click)="openAddUserDialog()">
+              <mat-icon>add_circle</mat-icon>
+            </button>
           </div>
         </div>
         <div class="row">
