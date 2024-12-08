@@ -38,9 +38,17 @@ export class MixedTransactionsBarComponent implements OnInit {
   @ViewChild("chart") chart: ChartComponent;
   public chartOptions: Partial<ChartOptions>;
   displyedColumns: string[] = ['id', 'name', 'email', 'contactNumber', 'status'];
-  dataSource: any;
+  // dataSource: any;
   responseMessage: any;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
+
+  displayedColumns: string[] = ['id', 'name', 'email', 'actions'];
+  dataSource = [
+    { id: 1, name: 'John Doe', email: 'john.doe@gmail.com' },
+    { id: 2, name: 'Jane Smith', email: 'jane.smith@gmail.com' },
+    { id: 3, name: 'Mike Brown', email: 'mike.brown@gmail.com' }
+  ];
+  
 
   constructor() {
     this.chartOptions = {
@@ -142,5 +150,23 @@ export class MixedTransactionsBarComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+
+  onEdit(element: any): void {
+    console.log('Edit action clicked for:', element);
+  }
+  
+  onView(element: any): void {
+    console.log('View action clicked for:', element);
+  }
+  
+  onVerify(element: any): void {
+    console.log('Verify action clicked for:', element);
+  }
+  
+  onMoreOptions(element: any): void {
+    console.log('More options clicked for:', element);
+  }
+  
 
 }

@@ -72,7 +72,7 @@ export class SigninComponent
             const role = res.entity.role
             if (role == Role.Admin) {
               console.log("Role:", role);
-              this.router.navigate(['/user/dashboard']);
+              this.router.navigate(['./dashboard']);
             } else {
               console.log("Access denied");
             }
