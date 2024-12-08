@@ -1,0 +1,20 @@
+.tracking-text {
+    color: black;
+}
+
+
+i.fas.fa-download {
+    font-size: 13px;
+    margin-left: 5px;
+    color: #007bff;
+    transition: transform 0.3s;
+}
+i.fa-chart-bar {
+    color: #d41717;
+    background: red;
+    border-radius: 5px;
+    transition: transform 0.3s;
+}
+iframe {
+    width: 100%;
+}

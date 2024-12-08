@@ -26,6 +26,17 @@ const routes: Routes = [
       import("./user/user.module").then((m) => m.UserModule),},
       
   {
+    path:"geographic-tracking",
+    loadChildren: () =>
+      import("./geographic-tracking/geographic-tracking.module").then((m) => m.GeographicTrackingModule),
+  },
+  {
+    path:"population-health",
+    loadChildren: () =>
+      import("./population-health/population-health.module").then((m) => m.PopulationHealthModule),
+  },
+
+  {
     path:"onboarding",
     loadChildren: () =>
       import("./onboarding/onboarding.module").then((m) => m.OnboardingModule),
