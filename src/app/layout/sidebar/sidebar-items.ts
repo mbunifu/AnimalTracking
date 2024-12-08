@@ -111,19 +111,19 @@ export const ROUTES: RouteInfo[] = [
   
   
 
-  {
-    path: "./loans",
-    title: "Loans",
-    moduleName: "loans",
-    iconType: "feather",
-    icon: "book-open",
-    class: "",
-    groupTitle: false,
-    badge: "",
-    badgeClass: "",
-    role: ["ADMIN"],
-    submenu: [],
-  },
+  // {
+  //   path: "./loans",
+  //   title: "Loans",
+  //   moduleName: "loans",
+  //   iconType: "feather",
+  //   icon: "book-open",
+  //   class: "",
+  //   groupTitle: false,
+  //   badge: "",
+  //   badgeClass: "",
+  //   role: ["ADMIN"],
+  //   submenu: [],
+  // },
   {
     path: "./user-management/users",
     title: "User Management",
