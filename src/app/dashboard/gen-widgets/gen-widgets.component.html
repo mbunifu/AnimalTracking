@@ -4,12 +4,13 @@
     <div class="info-box7" 
          style="background-color: #ffffff; border-radius: 8px;  padding: 15px; color: #000000;">
       <div>
+        <p style="margin: 0; font-size: 17px; font-weight: 500; color: #000000;">Total Animals</p>
         <h2 style="margin: 0; color: #000000; display: flex; align-items: center; justify-content: space-between;">
           <!-- <span>{{ agrodelearsCount }}</span> -->
-          <span>400,536,076</span>
+          <span>40,536,076</span>
           <i class="fas fa-plus-square" style="color: #ff0000; font-size: 30px;"></i>
         </h2>
-        <p style="margin: 0; font-size: 17px; font-weight: 500; color: #000000;">Total Animals</p>
+       
       </div>
     </div>
   </div>
@@ -18,12 +19,13 @@
     <div class="info-box7" 
          style="background-color: #ffffff; border-radius: 8px; padding: 15px; color: #000000;">
       <div>
+        <p style="margin: 0; font-size: 17px; font-weight: 500; color: #000000;">Today's Sales</p>
         <h2 style="margin: 0; color: #000000; display: flex; align-items: center; justify-content: space-between;">
           <!-- <span>{{ customersCount }}</span> -->
           <span>90,709</span>
           <i class="fas fa-credit-card" style="color: #ff0000; font-size: 30px;"></i>
         </h2>
-        <p style="margin: 0; font-size: 17px; font-weight: 500; color: #000000;">Today's Sales</p>
+       
       </div>
     </div>
   </div>
@@ -32,12 +34,13 @@
     <div class="info-box7" 
          style="background-color: #ffffff; border-radius: 8px; padding: 15px; color: #000000;">
       <div>
+        <p style="margin: 0; font-size: 17px; font-weight: 500; color: #000000;">Suspicious Activities</p>
         <h2 style="margin: 0; color: #000000; display: flex; align-items: center; justify-content: space-between;">
           <!-- <span>{{ driversCount }}</span> -->
           <span>5004</span>
           <i class="fas fa-exclamation-triangle" style="color: #ff0000; font-size: 30px;"></i>
         </h2>
-        <p style="margin: 0; font-size: 17px; font-weight: 500; color: #000000;">Suspicious Activities</p>
+
       </div>
     </div>
   </div>
@@ -46,18 +49,25 @@
     <div class="info-box7" 
          style="background-color: #ffffff; border-radius: 8px; padding: 15px; color: #000000;">
       <div>
+        <p style="margin: 0; font-size: 17px; font-weight: 500; color: #000000;">Annual Mapping Target</p>
         <h2 style="margin: 0; color: #000000; display: flex; align-items: center; justify-content: space-between;">
           <!-- <span>{{ farmersCount }}</span> -->
           <span>95%</span>
-          <mat-progress-bar
+          <!-- <mat-progress-bar
             mode="indeterminate"
             color="warn"
             style="width: 100px; height: 8px;">
-          </mat-progress-bar>
+          </mat-progress-bar> -->
+          <mat-progress-bar
+          [color]="color"
+          [mode]="mode"
+          [value]="value"
+          [bufferValue]="bufferValue">
+         </mat-progress-bar>
         </h2>
         
         
-        <p style="margin: 0; font-size: 17px; font-weight: 500; color: #000000;">Annual Mapping Target</p>
+
       </div>
     </div>
   </div>

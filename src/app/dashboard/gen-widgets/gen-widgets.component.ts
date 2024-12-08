@@ -1,5 +1,7 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
+import { ThemePalette } from "@angular/material/core";
 import { Router } from "@angular/router";
+import { NgbProgressbarModule } from "@ng-bootstrap/ng-bootstrap";
 import { Subject } from "rxjs";
 
 @Component({
@@ -28,7 +30,10 @@ export class GenWidgetsComponent implements OnInit, OnDestroy {
   driversCount: number = 0;
   agrodealears: any[] = [];
   agrodelearsCount: number = 0;
-
+  color: ThemePalette = 'warn';
+  mode: NgbProgressbarModule = 'determinate';
+  value = 95;
+  bufferValue = 95;
   constructor(
  ) {}
 
