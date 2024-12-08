@@ -48,6 +48,11 @@ const routes: Routes = [
     import("./dashboard/dashboard.module").then((m) => m.DashboardModule),
 },
 
+{
+  path: "user-management",
+  loadChildren: () =>
+    import("./user-management/user-management.module").then((m) => m.UserManagementModule),
+},
   
 
   

@@ -19,7 +19,8 @@ import { ActorPerRegionComponent } from './actor-per-region/actor-per-region.com
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatPaginatorModule } from '@angular/material/paginator'; // Add this
-import { MatTableModule } from '@angular/material/table'; // Add this
+import { MatTableModule } from '@angular/material/table';
+import { MatProgressBarModule } from '@angular/material/progress-bar'; // Add this
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { MatTableModule } from '@angular/material/table'; // Add this
     MatTableModule, // Added
     MatPaginatorModule, // Added
     MatSlideToggleModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatProgressBarModule,
   ]
 })
 export class DashboardModule { }

@@ -1,7 +1,4 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-
-import { Observable, Subject, forkJoin } from 'rxjs';
-import { BaseComponent } from 'src/app/shared/components/base/base.component';
 import {
   ApexChart,
   ApexAxisChartSeries,
@@ -10,18 +7,10 @@ import {
   ApexPlotOptions,
   ApexYAxis,
   ApexLegend,
-  ApexGrid
-} from "ng-apexcharts";
-type ApexXAxis = {
-  type?: "category" | "datetime" | "numeric";
-  categories?: any;
-  labels?: {
-    style?: {
-      colors?: string | string[];
-      fontSize?: string;
-    };
-  };
-};
+  ApexGrid,
+  ApexXAxis
+} from 'ng-apexcharts';
+import { Subject } from 'rxjs';
 
 export type ChartOptions = {
   series: ApexAxisChartSeries;
@@ -40,55 +29,33 @@ export type ChartOptions = {
   templateUrl: './actors.component.html',
   styleUrls: ['./actors.component.sass']
 })
-export class ActorsComponent extends BaseComponent implements OnInit {
-
-  isLoading: boolean;
-  @ViewChild("chart") chart: ChartComponent;
+export class ActorsComponent implements OnInit {
+  @ViewChild('chart') chart: ChartComponent;
   public chartOptions: Partial<ChartOptions>;
-
   destroy$: Subject<boolean> = new Subject<boolean>();
-  farmers: any[] = [];
-  farmersCount: number = 0;
-  customers: any[] = [];
-  customersCount: number = 0;
-  manufacturers: any[] = [];
-  manufacturersCount: number = 0;
-  serviceProviders: any[] = [];
-  providersCount: number = 0;
-  staff: any[] = [];
-  staffCount: number = 0;
-  warehouses: any[] = [];
-  warehoseCount: number = 0;
-  processors: any[] = [];
-  processorsCount: number = 0;
-  drivers: any[] = [];
-  driversCount: number = 0;
-  agrodealears: any[] = [];
-  agrodelearsCount: number = 0;
-
-
 
   constructor() {
-    super()
+    // Initialize chart options with temporary data for testing
     this.chartOptions = {
       series: [
         {
-          name: "Total",
-          data: []
+          name: 'Population',
+          data: [1200, 800, 500, 300] // Example data: Cattle, Goat, Donkey, Sheep
         }
       ],
       chart: {
         height: 506,
-        type: "bar",
+        type: 'bar',
         events: {
           click: function (chart, w, e) {
+            console.log(e);
           }
         }
       },
-      colors: [],
+      colors: ["#FFA500", "#4B0082", "#0000FF", "#17A2B8"], // Custom colors for each species
       plotOptions: {
         bar: {
-          columnWidth: "50%",
+          columnWidth: '50%',
           distributed: true
         }
       },
@@ -102,19 +69,25 @@ export class ActorsComponent extends BaseComponent implements OnInit {
         show: false
       },
       xaxis: {
-        categories: [],
+        categories: ['Goat', 'sheep', 'cattle', 'carmel'], // Example labels
         labels: {
           style: {
-            colors: [],
-            fontSize: "14px"
+            colors: ["#FFA500", "#4B0082", "#0000FF", "#17A2B8"], // Same colors as bars
+            fontSize: '14px'
           }
+        }
+      },
+      yaxis: {
+        title: {
+          text: 'Population'
         }
       }
     };
   }
 
   ngOnInit(): void {
-
+    // Additional logic if needed during component initialization
+    this.loadTemporaryData(); // Simulate a chart rendering process
   }
 
   ngOnDestroy(): void {
@@ -122,172 +95,30 @@ export class ActorsComponent extends BaseComponent implements OnInit {
     this.destroy$.complete();
   }
 
-  private renderCharts() {
-    
+  /**
+   * Simulates data for the chart with descending order.
+   */
+  private loadTemporaryData(): void {
+    const speciesData = [
+      { name: 'Goat', population: 1200 },
+      { name: 'Sheep', population: 800 },
+      { name: 'Cattle', population: 500 },
+      { name: 'Carmel', population: 300 }
+    ];
+
+    // Sort the data by population in descending order
+    const sortedData = speciesData.sort((a, b) => b.population - a.population);
+
+    // Update the chart options with the sorted data
     this.chartOptions.series = [
       {
-        name: 'Total',
-        data:[
-          this.agrodelearsCount,
-          this.customersCount,
-          this.driversCount,
-          this.farmersCount,
-          this.manufacturersCount,
-          this.processorsCount,
-          this.providersCount,
-          this.staffCount,
-          this.warehoseCount
-        ],
-      },
+        name: 'Population',
+        data: sortedData.map((item) => item.population)
+      }
     ];
-    this.chartOptions.colors = [
-      "#008FFB",
-      "#FF4560",
-      "#FEB019",
-      "#00E396",
-      "#775DD0",
-      "#546E7A",
-      "#26a69a",
-      "#D10CE8",
-      "#9B2827"
-    ];
-    this.chartOptions.xaxis.categories = [
-      "Agrodealers",
-      "Customers",
-      "Drivers",
-      "Farmers",
-      "Manufacturers",
-      "Processors",
-      "Service providers",
-      "Staff",
-      "Warehouses"
-    ];
+
+    this.chartOptions.xaxis.categories = sortedData.map((item) => item.name);
+
+    this.chartOptions.colors = ["#FFA500", "#4B0082", "#0000FF", "#17A2B8"];
   }
-
-  // private getAgrodelears() {
-  //   this.agrodealersService.getAllAgribusiness().subscribe({
-  //     next: ((res) => {
-  //       this.agrodealears = res.entity;
-  //       this.agrodelearsCount = this.agrodealears.length;
-  //       this.renderCharts();
-  //     }),
-  //     error: ((error) => {
-  //       console.log("Error fetching agrodealers", error);
-  //     }),
-  //     complete: (() => { })
-  //   })
-  // }
-
-  // private getCustomer() {
-  //   this.customerService.getAllCustomers().subscribe({
-  //     next: ((res) => {
-  //       this.customers = res.entity;
-  //       this.customersCount = this.customers.length;
-  //       this.renderCharts();
-  //     }),
-  //     error: ((error) => {
-  //       console.log("Error fetching customers", error);
-  //     }),
-  //     complete: (() => { })
-  //   })
-  // }
-
-  // private getDrivers() {
-  //   this.diverServive.getAlldrivers().subscribe({
-  //     next: ((res) => {
-  //       this.drivers = res.entity;
-  //       this.driversCount = this.drivers.length;
-  //       this.renderCharts();
-  //     }),
-  //     error: ((error) => {
-  //       console.log("Error fetching drivers", error)
-  //     }),
-  //     complete: (() => { })
-  //   })
-  // }
-
-  // private getFarmers() {
-  //   this.farmerService.getAllFarmers().subscribe({
-  //     next: ((res) => {
-  //       this.farmers = res.entity;
-  //       this.farmersCount = this.farmers.length;
-  //       this.renderCharts();
-  //     }),
-  //     error: ((error) => {
-  //       console.log("Error Fetching farmers", error);
-  //     }),
-  //     complete: (() => { })
-  //   })
-  // }
-
-  // private getManufacturers() {
-  //   this.manufacturerService.getAllManufacturers().subscribe({
-  //     next: ((res) => {
-  //       this.manufacturers = res.entity;
-  //       this.manufacturersCount = this.manufacturers.length;
-  //       this.renderCharts();
-  //     }),
-  //     error: ((error) => {
-  //       console.log("Error fetching manufacturers", error);
-  //     }),
-  //     complete: (() => { })
-  //   })
-  // }
-
-  // private getProcessors() {
-  //   this.processorService.getAllProcesors().subscribe({
-  //     next: ((res) => {
-  //       this.processors = res.entity;
-  //       this.processorsCount = this.processors.length;
-  //       this.renderCharts();
-  //     }),
-  //     error: ((error) => {
-  //       console.log("Error fetching processors", error);
-  //     }),
-  //     complete: (() => { })
-  //   })
-  // }
-
-  // private getServiceProviders() {
-  //   this.providersService.getAllServiceProviders().subscribe({
-  //     next: ((res) => {
-  //       this.serviceProviders = res.entity;
-  //       this.providersCount = this.serviceProviders.length;
-  //       this.renderCharts();
-  //     }),
-  //     error: ((error) => {
-  //       console.log("Error fetching servive providers", error);
-  //     }),
-  //     complete: (() => { })
-  //   })
-  // }
-
-  // private getStaff() {
-  //   this.staffService.getAllStaff().subscribe({
-  //     next: ((res) => {
-  //       this.staff = res.entity;
-  //       this.staffCount = this.staff.length;
-  //       this.renderCharts();
-  //     }),
-  //     error: ((error) => {
-  //       console.log("Error fetching staff", error);
-  //     }),
-  //     complete: (() => { })
-  //   })
-  // }
-
-  // private getWarehouses() {
-  //   this.warehouseService.getAllWarehouses().subscribe({
-  //     next: ((res) => {
-  //       this.warehouses = res.entity;
-  //       this.warehoseCount = this.warehouses.length;
-  //       this.renderCharts();
-  //     }),
-  //     error: ((error) => {
-  //       console.log("Error fetching warehouses", error);
-  //     }),
-  //     complete: (() => { })
-  //   })
-  // }
-
 }
