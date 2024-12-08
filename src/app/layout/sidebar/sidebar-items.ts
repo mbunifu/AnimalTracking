@@ -109,19 +109,7 @@ export const ROUTES: RouteInfo[] = [
     submenu: [],
   },
   
-  {
-    path: "./extension-services",
-    title: "Extension Services",
-    moduleName: "extension-services",
-    iconType: "feather",
-    icon: "sun",
-    class: "",
-    groupTitle: false,
-    badge: "",
-    badgeClass: "",
-    role: ["ADMIN"],
-    submenu: [],
-  },
+  
 
   {
     path: "./loans",
@@ -136,5 +124,49 @@ export const ROUTES: RouteInfo[] = [
     role: ["ADMIN"],
     submenu: [],
   },
+  {
+    path: "./user-management",
+    title: "User Management",
+    moduleName: "user-management",
+    iconType: "feather",
+    icon: "user",
+    class: "",
+    groupTitle: false,
+    badge: "",
+    badgeClass: "",
+    role: ["ADMIN"],
+    submenu: [
+
+      {
+        path: "./user-management/users",
+        title: "Users",
+        moduleName: "user-management",
+        iconType: "feather",
+        icon: "user",
+        class: "",
+        groupTitle: false,
+        badge: "",
+        badgeClass: "",
+        role: ["ADMIN"],
+        submenu: [],
+      },
+
+      {
+        path: "./user-management/roles",
+        title: "Roles",
+        moduleName: "user-management",
+        iconType: "feather",
+        icon: "book-open",
+        class: "",
+        groupTitle: false,
+        badge: "",
+        badgeClass: "",
+        role: ["ADMIN"],
+        submenu: [],
+      },
+    ],
+  },
+
+
   
 ]
