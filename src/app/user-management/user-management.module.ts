@@ -13,14 +13,23 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { AddUsersComponent } from './add-users/add-users.component';
 import { ComponentsModule } from "../shared/components/components.module";
+
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+
+
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 
 
 @NgModule({
   declarations: [
     UsersComponent,
-    RolesComponent
+    RolesComponent,
+    AddUsersComponent
   ],
   imports: [
     CommonModule,
@@ -33,7 +42,13 @@ import { ComponentsModule } from "../shared/components/components.module";
     MatInputModule,
     MatButtonModule,
     MatCardModule,
-    ComponentsModule
+    ComponentsModule,
+    CommonModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSlideToggleModule,
+    
+    MatTooltipModule
 ]
 })
 export class UserManagementModule { }
