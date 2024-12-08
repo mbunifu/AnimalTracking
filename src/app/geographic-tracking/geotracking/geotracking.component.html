@@ -1,0 +1,91 @@
+<section class="content">
+    <div class="content-block">
+        <div class="block-header">
+            <!-- breadcrumb -->
+            <app-breadcrumb [title]="'Geographic Tracking'" [items]="['Home']" [active_item]="'Geographic Tracking'">
+            </app-breadcrumb>
+        </div>
+
+        <mat-card class="mb-4">
+            <mat-card-content>
+                <div class="row">
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 ">
+                        <div class="info-box7 bg-c-white order-info-box7">
+                        <div class="info-box7-block">
+                                <h6 class="tracking-text">Cumulative new borns <i class="fas fa-download"></i></h6>
+                                <h2 class="text-end tracking-text"><i class="fas fa-chart-bar"></i> <span>100400</span></h2>
+                                <p class="m-b-0" style="font-size: 17px; font-weight: 500;">Total Animals</p>
+                        </div>
+                        </div>
+                    </div> 
+
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 ">
+                        <div class="info-box7 bg-c-white order-info-box7">
+                        <div class="info-box7-block">
+                                <h6 class="tracking-text">Today's Sales <i class="fas fa-download"></i></h6>
+                                <h2 class="text-end tracking-text"><i class="fas fa-chart-bar"></i> <span>90, 0000</span></h2>
+                                <p class="m-b-0" style="font-size: 17px; font-weight: 500;">Total Animals</p>
+                        </div>
+                        </div>
+                    </div> 
+
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 ">
+                        <div class="info-box7 bg-c-white order-info-box7">
+                        <div class="info-box7-block">
+                                <h6 class="tracking-text">Suspicious activities <i class="fas fa-download"></i></h6>
+                                <h2 class="text-end tracking-text"><i class="fas fa-chart-bar"></i> <span>5004</span></h2>
+                                <p class="m-b-0" style="font-size: 17px; font-weight: 500;">Total Animals</p>
+                        </div>
+                        </div>
+                    </div> 
+
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 ">
+                        <div class="info-box7 bg-c-white order-info-box7">
+                        <div class="info-box7-block">
+                            <h6 class="tracking-text">Annual mapping target achievement <i class="fas fa-download"></i></h6>
+                            <h2 class="text-end tracking-text"> <span>95%</span></h2>
+                            <mat-progress-bar
+                                [color]="color"
+                                [mode]="mode"
+                                [value]="value"
+                                [bufferValue]="bufferValue">
+                            </mat-progress-bar>
+                            <p class="m-b-0" style="font-size: 17px; font-weight: 500;">Total Animals</p>
+                        </div>
+                        </div>
+                    </div> 
+                    
+                </div>
+            </mat-card-content>
+        </mat-card>
+        
+        <mat-card>
+            <form [formGroup]="searchForm">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <input class="form-control me-2" type="search" placeholder="Filter By County V" aria-label="Search">
+                    </div>
+
+                    <div class="col-sm-3">
+                        <input class="form-control me-2" type="search" placeholder="Filter By Breed V" aria-label="Search">
+                    </div>
+
+                    <div class="col-sm-3">
+                        <input class="form-control me-2" type="search" placeholder="Filter By Date V" aria-label="Search">
+                    </div>
+
+                    <div class="col-sm-3"> 
+                        <input class="form-control me-2" type="search" placeholder="Search By Animal type" aria-label="Search" matSuffix> 
+                    </div>
+                </div>
+            </form>
+            
+        </mat-card>
+          
+        <mat-card>
+            <mat-card-content>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1021345.6527629155!2d35.401898374272506!3d0.5545310418082453!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1786cb6c7b9dc769%3A0x5b5f4b5a5e98c8e!2sBaringo%20County!5e0!3m2!1sen!2ske!4v1733652735891!5m2!1sen!2ske" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</section>
