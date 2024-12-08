@@ -36,7 +36,7 @@ export class ActorPerRegionComponent implements OnInit {
         }
       }
     },
-    labels: ["Tithe", "PDF", "DDF", "Custom"], // Example labels
+    labels: ["Goat", "Cattle", "Carmel", "Sheep"], // Example labels
     colors: ["#FFA500", "#4B0082", "#0000FF", "#17A2B8"], // Example colors
     responsive: [
       {

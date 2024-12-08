@@ -52,7 +52,7 @@ export class ActorsComponent implements OnInit {
           }
         }
       },
-      colors: ['#FF4560', '#008FFB', '#00E396', '#FEB019'], // Custom colors for each species
+      colors: ["#FFA500", "#4B0082", "#0000FF", "#17A2B8"], // Custom colors for each species
       plotOptions: {
         bar: {
           columnWidth: '50%',
@@ -69,10 +69,10 @@ export class ActorsComponent implements OnInit {
         show: false
       },
       xaxis: {
-        categories: ['Cattle', 'Goat', 'Donkey', 'Sheep'], // Example labels
+        categories: ['Goat', 'sheep', 'cattle', 'carmel'], // Example labels
         labels: {
           style: {
-            colors: ['#FF4560', '#008FFB', '#00E396', '#FEB019'], // Same colors as bars
+            colors: ["#FFA500", "#4B0082", "#0000FF", "#17A2B8"], // Same colors as bars
             fontSize: '14px'
           }
         }
@@ -100,10 +100,10 @@ export class ActorsComponent implements OnInit {
    */
   private loadTemporaryData(): void {
     const speciesData = [
-      { name: 'Cattle', population: 1200 },
-      { name: 'Goat', population: 800 },
-      { name: 'Donkey', population: 500 },
-      { name: 'Sheep', population: 300 }
+      { name: 'Goat', population: 1200 },
+      { name: 'Sheep', population: 800 },
+      { name: 'Cattle', population: 500 },
+      { name: 'Carmel', population: 300 }
     ];
 
     // Sort the data by population in descending order
@@ -119,6 +119,6 @@ export class ActorsComponent implements OnInit {
 
     this.chartOptions.xaxis.categories = sortedData.map((item) => item.name);
 
-    this.chartOptions.colors = ['#FF4560', '#008FFB', '#00E396', '#FEB019'];
+    this.chartOptions.colors = ["#FFA500", "#4B0082", "#0000FF", "#17A2B8"];
   }
 }
