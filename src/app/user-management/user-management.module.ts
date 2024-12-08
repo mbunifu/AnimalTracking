@@ -13,13 +13,15 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { AddUsersComponent } from './add-users/add-users.component';
 
 
 
 @NgModule({
   declarations: [
     UsersComponent,
-    RolesComponent
+    RolesComponent,
+    AddUsersComponent
   ],
   imports: [
     CommonModule,
