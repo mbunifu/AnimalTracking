@@ -1,15 +1,11 @@
-<section class="content">
+<!-- <section class="content">
     <div class="content-block">
-      <!-- Breadcrumb -->
       <div class="block-header">
         <app-breadcrumb [title]="'System Users'" [items]="['Home']" [active_item]="'Users'"></app-breadcrumb>
       </div>
   
-      <!-- Filter and System Users Card Row -->
       <div class=" col-md-8 " class="row" style="padding: 16px; font-family: Arial, sans-serif; display: flex; align-items: flex-start; justify-content: space-between;" >
-        <!-- Left Section: Filter and Add User -->
         <div class="left-section" style="display: flex; align-items: center; flex-wrap: wrap; padding-right: 16px; margin-right: 16px; background-color: #f5f5f5; padding: 16px; flex: 1;">
-          <!-- Filter Users -->
           <div style="display: flex; align-items: center; margin-right: 16px;">
             <mat-form-field appearance="outline" style="width: 200px;">
               <mat-label>Filter Users by Status</mat-label>
@@ -21,7 +17,6 @@
             </mat-form-field>
           </div>
           
-          <!-- Search Field -->
           <div style="display: flex; align-items: center; margin-right: 16px;">
             <mat-form-field appearance="outline" style="width: 250px;">
               <mat-label>Search by Email</mat-label>
@@ -29,7 +24,6 @@
             </mat-form-field>
           </div>
   
-          <!-- Add User Button -->
           <div>
             <button mat-raised-button color="primary" style="height: 36px; border-radius: 50%; width: 36px;">+</button>
           </div>
@@ -38,31 +32,26 @@
             <div class="responsive_table">
               <table mat-table [dataSource]="dataSource" class="mat-cell" style="width: 100%; border-collapse: collapse;">
           
-                <!-- ID Column -->
                 <ng-container matColumnDef="id">
                   <th mat-header-cell *matHeaderCellDef style="padding: 8px;">Id</th>
                   <td mat-cell *matCellDef="let element; let i = index" style="padding: 8px;">{{ i + 1 }}</td>
                 </ng-container>
           
-                <!-- Name Column -->
                 <ng-container matColumnDef="name">
                   <th mat-header-cell *matHeaderCellDef style="padding: 8px;">Name</th>
                   <td mat-cell *matCellDef="let element" style="padding: 8px;">{{ element.name }}</td>
                 </ng-container>
           
-                <!-- Email Column -->
                 <ng-container matColumnDef="email">
                   <th mat-header-cell *matHeaderCellDef style="padding: 8px;">Email</th>
                   <td mat-cell *matCellDef="let element" style="padding: 8px;">{{ element.email }}</td>
                 </ng-container>
           
-                <!-- Contact Number Column -->
                 <ng-container matColumnDef="contactNumber">
                   <th mat-header-cell *matHeaderCellDef style="padding: 8px;">Contact Number</th>
                   <td mat-cell *matCellDef="let element" style="padding: 8px;">{{ element.contactNumber }}</td>
                 </ng-container>
           
-                <!-- Status Column -->
                 <ng-container matColumnDef="status">
                   <th mat-header-cell *matHeaderCellDef style="padding: 8px;">Actions</th>
                   <td mat-cell *matCellDef="let element" style="padding: 8px;" class="action-link">
@@ -74,18 +63,15 @@
                   </td>
                 </ng-container>
           
-                <!-- Table Rows -->
                 <tr mat-header-row *matHeaderRowDef="displyedColumns; sticky: true"></tr>
                 <tr mat-row *matRowDef="let row; columns: displyedColumns"></tr>
               </table>
           
-              <!-- Paginator -->
               <mat-paginator [pageSizeOptions]="[2, 5, 10, 25, 50]" showFirstLastButtons></mat-paginator>
             </div>
           </div>
         </div>
   
-        <!-- Right Section: System Users Card -->
 
         <div  class="col-xl-3 col-lg-3 col-md-4" class="right-section" style="display: flex; justify-content: flex-end; padding-bottom: 16px; background-color: #f5f5f5; padding: 16px; flex-shrink: 0;">
             <mat-card style="width: 100%; display: flex; align-items: center; padding: 16px; background-color: #f5f5f5;">
@@ -100,8 +86,91 @@
       </div>
     </div>
   
-    <!-- Table Section -->
     
   </section>
 
-  
+   -->
+<section class="content">
+  <div class="content-block">
+    <div class="block-header">
+      <app-breadcrumb [title]="'System Users'" [items]="['Home']" [active_item]="'Users'"></app-breadcrumb>
+    </div>
+
+    <div class="row">
+      <div class=" col-md-8 ">
+        <div class="row" style="background: rgb(223, 215, 215); padding: 10px; height: 75px; border-radius: 10px;">
+          <div class="col-sm-4">
+            <mat-form-field appearance="outline">
+              <mat-label>Filter Users by Status</mat-label>
+              <mat-select [(value)]="selectedFilter">
+                <mat-option *ngFor="let option of filterOptions" [value]="option">
+                  {{ option }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="col-sm-4">
+            <mat-form-field appearance="outline">
+              <mat-label>Search by Email</mat-label>
+              <input matInput type="email" placeholder="Enter email" />
+            </mat-form-field>
+          </div>
+          <div class="col-sm-4">
+            <button mat-raised-button color="primary" style="border-radius: 55%; height: 50px;"><mat-icon>add_circle</mat-icon></button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="table-section" style="margin-top: 16px; padding: 16px; background-color: #f9f9f9;">
+            <div class="responsive_table">
+              <table mat-table [dataSource]="dataSource" class="mat-cell" style="width: 100%; border-collapse: collapse;">
+          
+                <ng-container matColumnDef="id">
+                  <th mat-header-cell *matHeaderCellDef style="padding: 8px;">Id</th>
+                  <td mat-cell *matCellDef="let element; let i = index" style="padding: 8px;">{{ i + 1 }}</td>
+                </ng-container>
+          
+                <ng-container matColumnDef="name">
+                  <th mat-header-cell *matHeaderCellDef style="padding: 8px;">Name</th>
+                  <td mat-cell *matCellDef="let element" style="padding: 8px;">{{ element.name }}</td>
+                </ng-container>
+          
+                <ng-container matColumnDef="email">
+                  <th mat-header-cell *matHeaderCellDef style="padding: 8px;">Email</th>
+                  <td mat-cell *matCellDef="let element" style="padding: 8px;">{{ element.email }}</td>
+                </ng-container>
+          
+                <ng-container matColumnDef="contactNumber">
+                  <th mat-header-cell *matHeaderCellDef style="padding: 8px;">Contact Number</th>
+                  <td mat-cell *matCellDef="let element" style="padding: 8px;">{{ element.contactNumber }}</td>
+                </ng-container>
+          
+                <ng-container matColumnDef="status">
+                  <th mat-header-cell *matHeaderCellDef style="padding: 8px;">Actions</th>
+                  <td mat-cell *matCellDef="let element" style="padding: 8px;" class="action-link">
+                   <button mat-icon-button color="primary" matTooltip="View User"><mat-icon>visibility</mat-icon></button>
+                   <button mat-icon-button color="primary" matTooltip="Verify User"><mat-icon>check_circle</mat-icon></button>
+                   <button mat-icon-button color="primary" matTooltip="Edit User"><mat-icon>edit</mat-icon></button>
+
+                  </td>
+                </ng-container>
+          
+                <tr mat-header-row *matHeaderRowDef="displyedColumns; sticky: true"></tr>
+                <tr mat-row *matRowDef="let row; columns: displyedColumns"></tr>
+              </table>
+          
+              <mat-paginator [pageSizeOptions]="[2, 5, 10, 25, 50]" showFirstLastButtons></mat-paginator>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <mat-card>
+          <div>
+            <h3>System Users</h3> <mat-icon>group</mat-icon>
+            <p style="font-size: 18px; font-weight: bold; color: #000;"> {{ totalUsers }} Users</p>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</section>
