@@ -58,5 +58,91 @@
                 </div>
             </mat-card-content>
         </mat-card>
+
+        <div class="row mb-4">
+
+            <!-- <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-4">
+                <mat-card>
+                    <h4>Population Trends</h4>
+                    <mat-form-field>
+                        <mat-label>Select breed</mat-label>
+                        <mat-select>
+                            <mat-option>Diary Breed</mat-option>
+                            <mat-option>Meat Breed</mat-option>
+                            <mat-option>Dual Purpose</mat-option>
+                            <mat-option>Indegenous</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-card-content>
+                        <p class="m-b-0" style="font-size: 17px; font-weight: 400;">Population Bar graph</p>
+                        <apx-chart *ngIf="chartOptions.series" [series]="chartOptions.series" [chart]="chartOptions.chart"
+                            [dataLabels]="chartOptions.dataLabels" [plotOptions]="chartOptions.plotOptions"
+                            [yaxis]="chartOptions.yaxis" [xaxis]="chartOptions.xaxis" [legend]="chartOptions.legend"
+                            [colors]="chartOptions.colors" [grid]="chartOptions.grid"></apx-chart>
+                    </mat-card-content>
+                </mat-card>
+            </div> -->
+
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-4">
+                <mat-card>
+                    <h4>Population Trends</h4>
+                    
+                    <div class="row">
+                        <!-- First Dropdown: Select Animal Breed -->
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                            <mat-form-field appearance="fill">
+                                <mat-label>Select Animal Breed</mat-label>
+                                <mat-select [(value)]="selectedAnimalBreed" (selectionChange)="onAnimalBreedChange($event)">
+                                    <mat-option value="Cow">Cow</mat-option>
+                                    <mat-option value="Goat">Goat</mat-option>
+                                    <mat-option value="Sheep">Sheep</mat-option>
+                                    <mat-option value="Camel">Camel</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+            
+                        <!-- Second Dropdown: Select Breed (Visible only after selecting Animal Breed) -->
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6" *ngIf="selectedAnimalBreed">
+                            <mat-form-field appearance="fill">
+                                <mat-label>Select Breed</mat-label>
+                                <mat-select (selectionChange)="onBreedChange($event)">
+                                    <mat-option *ngFor="let breed of objectKeys(breedsData)" [value]="breed">
+                                        {{ breed }}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+            
+                    <!-- Chart Display -->
+                    <mat-card-content>
+                        <p class="m-b-0" style="font-size: 17px; font-weight: 400;">Population Bar Graph</p>
+                        <apx-chart
+                            *ngIf="chartOptions.series.length"
+                            [series]="chartOptions.series"
+                            [chart]="chartOptions.chart"
+                            [dataLabels]="chartOptions.dataLabels"
+                            [plotOptions]="chartOptions.plotOptions"
+                            [yaxis]="chartOptions.yaxis"
+                            [xaxis]="chartOptions.xaxis"
+                            [legend]="chartOptions.legend"
+                            [colors]="chartOptions.colors"
+                            [grid]="chartOptions.grid">
+                        </apx-chart>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+            
+
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-4">
+                <mat-card>
+                  <mat-card-content>
+                   
+                  </mat-card-content>
+                </mat-card>
+              </div>
+              
+                     
+        </div>
     </div>
 </section>
