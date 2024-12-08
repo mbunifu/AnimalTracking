@@ -7,6 +7,6 @@ export enum Role {
   Warehouse = "WAREHOUSE",
   Driver = "DRIVER",
   user = "user",
-  farmer = "farmer",
+  farmer = "FARMER",
   User = "User",
 }
