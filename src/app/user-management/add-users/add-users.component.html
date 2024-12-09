@@ -1,7 +1,42 @@
 <h2 mat-dialog-title>Add User</h2>
 <div mat-dialog-content>
-  <p>Here you can add user details...</p>
-  <!-- Form fields for adding user -->
+  
+  <form #userForm="ngForm">
+    <!-- First Name -->
+    <mat-form-field appearance="fill" style="width: 100%;">
+      <mat-label>First Name</mat-label>
+      <input matInput name="firstName" [(ngModel)]="user.firstName" required />
+    </mat-form-field>
+
+    <!-- Last Name -->
+    <mat-form-field appearance="fill" style="width: 100%;">
+      <mat-label>Last Name</mat-label>
+      <input matInput name="lastName" [(ngModel)]="user.lastName" required />
+    </mat-form-field>
+
+    <!-- Email -->
+    <mat-form-field appearance="fill" style="width: 100%;">
+      <mat-label>Email</mat-label>
+      <input matInput type="email" name="email" [(ngModel)]="user.email" required />
+    </mat-form-field>
+
+    <!-- Country -->
+    <mat-form-field appearance="fill" style="width: 100%;">
+      <mat-label>Country</mat-label>
+      <input matInput name="country" [(ngModel)]="user.country" required />
+    </mat-form-field>
+
+    <!-- Role -->
+    <mat-form-field appearance="fill" style="width: 100%;">
+      <mat-label>Role</mat-label>
+      <mat-select name="role" [(ngModel)]="user.role" required>
+        <mat-option value="systemAdmin">System Admin</mat-option>
+        <mat-option value="veterinaryBoard">Veterinary Board</mat-option>
+        <mat-option value="governmentOfficial">Government Official</mat-option>
+        <mat-option value="institutionAdmin">Institution Admin</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
 </div>
 <div mat-dialog-actions>
   <button mat-button mat-dialog-close>Cancel</button>

@@ -20,8 +20,10 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
-
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { SystemRolesComponent } from './system-roles/system-roles.component';
+
 
 
 
@@ -29,13 +31,14 @@ import { MatTooltipModule } from '@angular/material/tooltip';
   declarations: [
     UsersComponent,
     RolesComponent,
-    AddUsersComponent
+    AddUsersComponent,
+    SystemRolesComponent
   ],
   imports: [
     CommonModule,
     UserManagementRoutingModule,
     FormsModule,
-    // BrowserAnimationsModule,
+    MatDialogModule,
     MatIconModule,
     MatSelectModule,
     MatFormFieldModule,
@@ -47,7 +50,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatTableModule,
     MatPaginatorModule,
     MatSlideToggleModule,
-    
+    FormsModule,
     MatTooltipModule
 ]
 })

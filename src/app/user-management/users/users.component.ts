@@ -3,7 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 
-import { AddUsersComponent } from '../add-users/add-users.component';
+import { AddUsersComponent } from '../add-users/add-users.component'; 
 
 @Component({
   selector: 'app-users',

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
+
 
 @Component({
   selector: 'app-add-users',
@@ -6,10 +8,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-users.component.css']
 })
 export class AddUsersComponent implements OnInit {
+  user = {
+    firstName: '',
+    lastName: '',
+    email: '',
+    country: '',
+    role: ''
+  };
 
-  constructor() { }
+  constructor(public dialogRef: MatDialogRef<AddUsersComponent>) {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  saveUser(): void {
+    console.log('User data:', this.user);
+   
+    this.dialogRef.close(); 
   }
-
 }

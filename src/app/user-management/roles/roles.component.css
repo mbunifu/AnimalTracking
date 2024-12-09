@@ -1,0 +1,8 @@
+.heading-text {
+    background: hsl(210, 3%, 86%);
+    padding: 10px;
+    border-radius: 10px;
+}
+.heading-text button {
+    margin-bottom: 10px;
+}
