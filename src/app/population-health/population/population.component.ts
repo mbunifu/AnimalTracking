@@ -81,7 +81,7 @@ export class PopulationComponent implements OnInit {
     this.chartOptions = {
       series: [],
       chart: {
-        height: 506,
+        height: 380,
         type: 'bar'
       },
       colors: ["#FFA500", "#4B0082", "#0000FF", "#17A2B8"],
