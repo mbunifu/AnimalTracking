@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 
-import { AddUsersComponent } from '../add-users/add-users.component'; // Import AddUsersComponent
+import { AddUsersComponent } from '../add-users/add-users.component'; 
 
 @Component({
   selector: 'app-users',
