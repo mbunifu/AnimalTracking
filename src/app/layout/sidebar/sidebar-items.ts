@@ -2,7 +2,7 @@ import { RouteInfo } from "./sidebar.metadata";
 export const ROUTES: RouteInfo[] = [
   {
     path: "./dashboard",
-    title: "dashboard",
+    title: "Dashboard",
     moduleName: "dashboard",
     iconType: "feather",
     icon: "airplay",
@@ -167,6 +167,45 @@ export const ROUTES: RouteInfo[] = [
     ],
   },
 
-
+  {
+    path: "./report-analytics",
+    title: "Report & Analytics",
+    moduleName: "report-analytics",
+    iconType: "feather",
+    icon: "users",
+    class: "",
+    groupTitle: false,
+    badge: "",
+    badgeClass: "",
+    role: ["ADMIN"],
+    submenu: [],
+  },
   
+  {
+    path: "./weather-data",
+    title: "Weather Data",
+    moduleName: "weather-data",
+    iconType: "feather",
+    icon: "users",
+    class: "",
+    groupTitle: false,
+    badge: "",
+    badgeClass: "",
+    role: ["ADMIN"],
+    submenu: [],
+  },
+
+  {
+    path: "./alerts",
+    title: "Alerts(Veterinary/Compliance)",
+    moduleName: "alerts",
+    iconType: "feather",
+    icon: "users",
+    class: "",
+    groupTitle: false,
+    badge: "",
+    badgeClass: "",
+    role: ["ADMIN"],
+    submenu: [],
+  },
 ]
