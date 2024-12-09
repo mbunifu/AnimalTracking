@@ -44,9 +44,10 @@ export class MixedTransactionsBarComponent implements OnInit {
 
   displayedColumns: string[] = ['id', 'name', 'email', 'actions'];
   dataSource = [
-    { id: 1, name: 'John Doe', email: 'john.doe@gmail.com' },
-    { id: 2, name: 'Jane Smith', email: 'jane.smith@gmail.com' },
-    { id: 3, name: 'Mike Brown', email: 'mike.brown@gmail.com' }
+    { id: 1, name: 'John Doe', email: 'john.doe@gmail.com', status: 'approved' },
+    { id: 2, name: 'Jane Smith', email: 'jane.smith@gmail.com', status: 'pending' },
+    { id: 3, name: 'Mike Brown', email: 'mike.brown@gmail.com', status: 'approved' },
+    { id: 4, name: 'Mike Yellow', email: 'mike.yellow@gmail.com', status: 'pending' }
   ];
   
 
