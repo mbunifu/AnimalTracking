@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { SystemRolesComponent } from '../system-roles/system-roles.component';
 
 @Component({
   selector: 'app-roles',
@@ -16,10 +18,26 @@ export class RolesComponent implements OnInit {
     
   ];
 
-  constructor() { }
+  constructor(
+    private dialog : MatDialog
+  ) { }
 
   ngOnInit(): void {
     this.dataSource = this.dataSource; 
+  }
+
+
+  openAddUserDialog(): void {
+    const dialogRef = this.dialog.open(SystemRolesComponent, {
+      width: '500px', // Adjust width as needed
+      height: 'auto', // Adjust height as needed
+      data: {} // Optional: Pass data if required
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed', result);
+      // Handle any logic after closing the dialog (e.g., refreshing the table)
+    });
   }
 
 }

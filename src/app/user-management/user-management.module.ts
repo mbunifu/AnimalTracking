@@ -22,6 +22,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { SystemRolesComponent } from './system-roles/system-roles.component';
 
 
 
@@ -30,7 +31,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
   declarations: [
     UsersComponent,
     RolesComponent,
-    AddUsersComponent
+    AddUsersComponent,
+    SystemRolesComponent
   ],
   imports: [
     CommonModule,
