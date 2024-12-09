@@ -49,6 +49,23 @@ const routes: Routes = [
 },
 
 {
+  path: "weather-data",
+  loadChildren: () =>
+    import("./dashboard/dashboard.module").then((m) => m.DashboardModule),
+},
+{
+  path: "alerts",
+  loadChildren: () =>
+    import("./dashboard/dashboard.module").then((m) => m.DashboardModule),
+},
+
+{
+  path: "report-analytics",
+  loadChildren: () =>
+    import("./dashboard/dashboard.module").then((m) => m.DashboardModule),
+},
+
+{
   path: "user-management",
   loadChildren: () =>
     import("./user-management/user-management.module").then((m) => m.UserManagementModule),

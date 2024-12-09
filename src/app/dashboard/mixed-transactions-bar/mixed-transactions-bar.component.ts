@@ -44,9 +44,13 @@ export class MixedTransactionsBarComponent implements OnInit {
 
   displayedColumns: string[] = ['id', 'name', 'email', 'actions'];
   dataSource = [
-    { id: 1, name: 'John Doe', email: 'john.doe@gmail.com' },
-    { id: 2, name: 'Jane Smith', email: 'jane.smith@gmail.com' },
-    { id: 3, name: 'Mike Brown', email: 'mike.brown@gmail.com' }
+    { id: 1, name: 'Ekwang Etabo Logela', email: 'Davidkipchumbaruto@gmail.com', contactNumber: '123-456-7890', status: true },
+    { id: 2, name: 'Halima Gufu Waqo', email: 'emily@chomatech.co.ke', contactNumber: '098-765-4321', status: false },
+    { id: 3, name: 'Samuel Mutua Ndambuki', email: 'samuelutundambuki@gmail.co.ke', contactNumber: '555-123-4567', status: true },
+    { id: 4, name: 'Esther Chebet Kiplagat', email: 'esther@safaricredi.co.ke', contactNumber: '333-222-4444', status: false },
+    { id: 5, name: 'Lemaiyan Ole Nkaru', email: 'hello@kilimanjaroinnovation.co.ke', contactNumber: '777-888-9999', status: true },
+    { id: 6, name: 'Ekitela Ekidor Lokidor', email: 'support@masaifinance.co.ke', contactNumber: '111-222-3333', status: false },
+    { id: 7, name: 'Emma Davis', email: 'emma.davis@gmail.com', contactNumber: '444-555-6666', status: true },
   ];
   
 
