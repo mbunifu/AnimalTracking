@@ -1,0 +1,42 @@
+<section class="content">
+    <div class="content-block">
+        <div class="block-header">
+            <!-- breadcrumb -->
+            <app-breadcrumb [title]="'Reports & Analytics'" [items]="['Reports']" [active_item]="'Analytics'">
+            </app-breadcrumb>
+        </div>
+
+        <hr>
+       <mat-card>
+            <h4 class="text-center">Reports and Analytics</h4>
+            <div class="row">
+                <mat-form-field>
+                    <mat-label>search report by name</mat-label>
+                    <input matInput>
+                </mat-form-field>
+                <div class="all-reports mt-5">
+                    <h6 class="text-center">All Reports</h6>
+                    <hr>
+                    <div class="individual-reports">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6>Cow reports <mat-icon class="mx-5">cloud_download</mat-icon></h6>
+                            </div>
+                            <div class="col-sm-3">
+                                <h6>Goats reports <mat-icon class="mx-5">cloud_download</mat-icon></h6>
+                            </div>
+                            <div class="col-sm-3">
+                                <h6>Sheep reports <mat-icon class="mx-5">cloud_download</mat-icon></h6>
+                            </div>
+                            <div class="col-sm-3">
+                                <h6>Sheep reports <mat-icon class="mx-5">cloud_download</mat-icon></h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+       </mat-card>
+        
+       <hr>
+    </div>
+</section>

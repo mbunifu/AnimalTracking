@@ -168,11 +168,11 @@ export const ROUTES: RouteInfo[] = [
   },
 
   {
-    path: "./report-analytics",
+    path: "./report-analytics/reports",
     title: "Report & Analytics",
     moduleName: "report-analytics",
     iconType: "feather",
-    icon: "users",
+    icon: "file-text",
     class: "",
     groupTitle: false,
     badge: "",
