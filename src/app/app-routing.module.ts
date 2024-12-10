@@ -62,7 +62,7 @@ const routes: Routes = [
 {
   path: "report-analytics",
   loadChildren: () =>
-    import("./dashboard/dashboard.module").then((m) => m.DashboardModule),
+    import("./report-analytics/report-analytics.module").then((m) => m.ReportAnalyticsModule),
 },
 
 {
