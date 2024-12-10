@@ -20,7 +20,7 @@
                     <div class="individual-reports">
                         <div class="row">
                             <div class="col-sm-3">
-                                <h6>Cow reports <mat-icon class="mx-5">cloud_download</mat-icon></h6>
+                                <h6>Cow reports <button mat-icon-button color="primary" matTooltip="Donwload Cows Reports"><mat-icon>cloud_download</mat-icon></button></h6>
                             </div>
                             <div class="col-sm-3">
                                 <h6>Goats reports <mat-icon class="mx-5">cloud_download</mat-icon></h6>
@@ -37,6 +37,18 @@
             </div>
        </mat-card>
         
-       <hr>
+      <hr>
+       <div class="row mt-5">
+        <div class="col-sm-6">
+            <mat-card>
+                <app-reports-piechart></app-reports-piechart>
+            </mat-card>
+        </div>
+        <div class="col-sm-6">
+            <mat-card>
+                <app-reports-linegrapgh></app-reports-linegrapgh>
+            </mat-card>
+        </div>
+       </div>
     </div>
 </section>
