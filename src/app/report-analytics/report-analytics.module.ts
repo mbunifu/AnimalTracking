@@ -14,12 +14,18 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
+import { ReportsPiechartComponent } from './reports-piechart/reports-piechart.component';
+import { ReportsLinegrapghComponent } from './reports-linegrapgh/reports-linegrapgh.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
+
 
 
 
 @NgModule({
   declarations: [
-    ReportsComponent
+    ReportsComponent,
+    ReportsPiechartComponent,
+    ReportsLinegrapghComponent
   ],
   imports: [
     CommonModule,
@@ -35,7 +41,8 @@ import { MatDividerModule } from '@angular/material/divider';
     MatInputModule,
     MatButtonModule,
     MatCardModule,
-    MatDividerModule
+    MatDividerModule,
+    MatTooltipModule
 ]
 })
 export class ReportAnalyticsModule { }
