@@ -18,16 +18,16 @@ export class UsersComponent implements OnInit, AfterViewInit {
 
   displayedColumns: string[] = ['id', 'name', 'email', 'status'];
   dataSource = new MatTableDataSource([
-    { id: 1, name: 'John Doe', email: 'john.doe@gmail.com', contactNumber: '123-456-7890', status: true },
-    { id: 2, name: 'Jane Smith', email: 'jane.smith@gmail.com', contactNumber: '098-765-4321', status: false },
-    { id: 3, name: 'Alice Johnson', email: 'alice.johnso@gmail.com.com', contactNumber: '555-123-4567', status: true },
-    { id: 4, name: 'Bob Brown', email: 'bob.brown@gmail.com', contactNumber: '333-222-4444', status: false },
-    { id: 5, name: 'Charlie Williams', email: 'charlie.williams@gmail.com', contactNumber: '777-888-9999', status: true },
-    { id: 6, name: 'David Lee', email: 'david.lee@gmail.com', contactNumber: '111-222-3333', status: false },
+    { id: 1, name: 'Ekwang Etabo Logela', email: 'Davidkipchumbaruto@gmail.com', contactNumber: '123-456-7890', status: true },
+    { id: 2, name: 'Halima Gufu Waqo', email: 'emily@chomatech.co.ke', contactNumber: '098-765-4321', status: false },
+    { id: 3, name: 'Samuel Mutua Ndambuki', email: 'samuelutundambuki@gmail.co.ke', contactNumber: '555-123-4567', status: true },
+    { id: 4, name: 'Esther Chebet Kiplagat', email: 'esther@safaricredi.co.ke', contactNumber: '333-222-4444', status: false },
+    { id: 5, name: 'Lemaiyan Ole Nkaru', email: 'hello@kilimanjaroinnovation.co.ke', contactNumber: '777-888-9999', status: true },
+    { id: 6, name: 'Ekitela Ekidor Lokidor', email: 'support@masaifinance.co.ke', contactNumber: '111-222-3333', status: false },
     { id: 7, name: 'Emma Davis', email: 'emma.davis@gmail.com', contactNumber: '444-555-6666', status: true },
-    { id: 8, name: 'Frank Miller', email: 'frank.miller@gmail.com', contactNumber: '999-000-1111', status: true },
-    { id: 9, name: 'Grace Wilson', email: 'grace.wilson@gmail.com', contactNumber: '222-333-4444', status: false },
-    { id: 10, name: 'Henry Moore', email: 'henry.moore@gmail.com', contactNumber: '555-666-7777', status: true }
+    { id: 8, name: 'Leah Lengolos Lesanjo', email: 'contact@jambobiz.co.ke', contactNumber: '999-000-1111', status: true },
+    { id: 9, name: 'Grace Wanyore', email: 'grace.wanyore@gmail.com', contactNumber: '222-333-4444', status: false },
+    { id: 10, name: 'Henry Ekadukoit', email: 'ekadukoite@gmail.com', contactNumber: '555-666-7777', status: true }
   ]);
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;

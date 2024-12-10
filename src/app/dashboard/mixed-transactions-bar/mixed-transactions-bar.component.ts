@@ -44,10 +44,21 @@ export class MixedTransactionsBarComponent implements OnInit {
 
   displayedColumns: string[] = ['id', 'name', 'email', 'actions'];
   dataSource = [
-    { id: 1, name: 'John Doe', email: 'john.doe@gmail.com', status: 'approved' },
-    { id: 2, name: 'Jane Smith', email: 'jane.smith@gmail.com', status: 'pending' },
-    { id: 3, name: 'Mike Brown', email: 'mike.brown@gmail.com', status: 'approved' },
-    { id: 4, name: 'Mike Yellow', email: 'mike.yellow@gmail.com', status: 'pending' }
+    // { id: 1, name: 'John Doe', email: 'john.doe@gmail.com', status: 'approved' },
+    // { id: 2, name: 'Jane Smith', email: 'jane.smith@gmail.com', status: 'pending' },
+    // { id: 3, name: 'Mike Brown', email: 'mike.brown@gmail.com', status: 'approved' },
+    // { id: 4, name: 'Mike Yellow', email: 'mike.yellow@gmail.com', status: 'pending' },
+
+    { id: 1, name: 'Ekwang Etabo Logela', email: 'Davidkipchumbaruto@gmail.com', contactNumber: '123-456-7890', status: 'approved' },
+    { id: 2, name: 'Halima Gufu Waqo', email: 'emily@chomatech.co.ke', contactNumber: '098-765-4321', status: 'pending' },
+    { id: 3, name: 'Samuel Mutua Ndambuki', email: 'samuelutundambuki@gmail.co.ke', contactNumber: '555-123-4567', status: 'pending' },
+    { id: 4, name: 'Esther Chebet Kiplagat', email: 'esther@safaricredi.co.ke', contactNumber: '333-222-4444', status: 'approved' },
+    { id: 5, name: 'Lemaiyan Ole Nkaru', email: 'hello@kilimanjaroinnovation.co.ke', contactNumber: '777-888-9999', status: 'pending' },
+    { id: 6, name: 'Ekitela Ekidor Lokidor', email: 'support@masaifinance.co.ke', contactNumber: '111-222-3333', status: 'approved' },
+    { id: 7, name: 'Emma Davis', email: 'emma.davis@gmail.com', contactNumber: '444-555-6666', status: 'approved' },
+    { id: 8, name: 'Leah Lengolos Lesanjo', email: 'contact@jambobiz.co.ke', contactNumber: '999-000-1111', status: 'pending' },
+    { id: 9, name: 'Grace Wanyore', email: 'grace.wanyore@gmail.com', contactNumber: '222-333-4444', status: 'approved' },
+    { id: 10, name: 'Henry Ekadukoit', email: 'ekadukoite@gmail.com', contactNumber: '555-666-7777', status: 'approved' }
   ];
   
 
