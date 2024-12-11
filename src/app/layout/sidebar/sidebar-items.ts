@@ -195,8 +195,9 @@ export const ROUTES: RouteInfo[] = [
     submenu: [],
   },
 
+  
   {
-    path: "./alerts",
+    path: "./alerts/veterinary-needs",
     title: "Alerts(Veterinary/Compliance)",
     moduleName: "alerts",
     iconType: "feather",
@@ -206,6 +207,21 @@ export const ROUTES: RouteInfo[] = [
     badge: "",
     badgeClass: "",
     role: ["ADMIN"],
-    submenu: [],
+    submenu: [
+
+      {
+        path: "./alerts/compliance-alerts",
+        title: "Compliance Alerts",
+        moduleName: "alerts",
+        iconType: "feather",
+        icon: "users",
+        class: "",
+        groupTitle: false,
+        badge: "",
+        badgeClass: "",
+        role: ["ADMIN"],
+        submenu: [],
+      },
+    ],
   },
 ]
