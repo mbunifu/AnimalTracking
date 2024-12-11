@@ -16,6 +16,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 import { VetResourcesComponent } from './vet-resources/vet-resources.component';
+import { ComplianceAlertsComponent } from './compliance-alerts/compliance-alerts.component';
 // import { VetResourcesComponent } from './vet-resources/vet-resources.component';
 // import { ComplianceAlertsComponent } from './compliance-alerts/compliance-alerts.component';
 
@@ -25,6 +26,7 @@ import { VetResourcesComponent } from './vet-resources/vet-resources.component';
   declarations: [
     VeterinaryNeedsComponent,
     VetResourcesComponent,
+    ComplianceAlertsComponent,
     // VetResourcesComponent,
     // ComplianceAlertsComponent
   ],
