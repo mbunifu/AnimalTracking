@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
-// import { VetResourcesComponent } from '../vet-resources/vet-resources.component';
+import { VetResourcesComponent } from '../vet-resources/vet-resources.component';
 
 
 export interface VeterinaryNeed {
@@ -42,17 +42,17 @@ export class VeterinaryNeedsComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // openVetResourcesDialog(): void {
-  //   const dialogRef = this.dialog.open(VetResourcesComponent, {
-  //     width: '500px',
-  //     height: 'auto',
-  //     data: {}
-  //   });
+  openVetResourcesDialog(): void {
+    const dialogRef = this.dialog.open(VetResourcesComponent, {
+      width: '500px',
+      height: 'auto',
+      data: {}
+    });
 
-  //   dialogRef.afterClosed().subscribe((result) => {
-  //     console.log('The dialog was closed', result);
-  //   });
-  // }
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed', result);
+    });
+  }
 
 
 }
