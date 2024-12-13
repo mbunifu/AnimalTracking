@@ -56,7 +56,7 @@ const routes: Routes = [
 {
   path: "alerts",
   loadChildren: () =>
-    import("./dashboard/dashboard.module").then((m) => m.DashboardModule),
+    import("./alerts/alerts.module").then((m) => m.AlertsModule),
 },
 
 {
