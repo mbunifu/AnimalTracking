@@ -1,10 +1,38 @@
-    <!-- Farmer-to-others transactions -->
-    <!-- <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
-        <apx-chart [series]="chartOptions1.series" [chart]="chartOptions1.chart" [xaxis]="chartOptions1.xaxis"
-            [stroke]="chartOptions1.stroke" [tooltip]="chartOptions1.tooltip" [dataLabels]="chartOptions1.dataLabels"
-            [legend]="chartOptions1.legend" [markers]="chartOptions1.markers" [grid]="chartOptions1.grid"
-            [yaxis]="chartOptions1.yaxis" [title]="chartOptions1.title"></apx-chart>
-    </div> -->
-    <table>
-        Table
-    </table>
+<div class="addContainer">
+  <div *ngIf="member" class="contact-details">
+    <div class="modalHeader">
+      <div class="contact-details-name mb-1">Farmer Details</div>
+      <button mat-icon-button (click)="closeDialog()" aria-label="Close dialog">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+    <div mat-dialog-content>
+      <mat-card-content>
+        <div class="row mt-1" style="width: 98%">
+          <div class="col-5 m-b-10">Farmer ID:</div>
+          <div class="col-7 pro-left m-b-10">{{ data.member.id }}</div>
+          <div class="col-5 m-b-10">Firstname:</div>
+          <div class="col-7 pro-left m-b-10">
+            {{ data.member.user.firstName }}
+          </div>
+          <div class="col-5 m-b-10">Lastname:</div>
+          <div class="col-7 pro-left m-b-10">
+            {{ data.member.user.lastName }}
+          </div>
+          <div class="col-5 m-b-10">Phone Number:</div>
+          <div class="col-7 pro-left m-b-10">
+            {{ data.member.user.phoneNo }}
+          </div>
+          <div class="col-5 m-b-10">Email:</div>
+          <div class="col-7 pro-left m-b-10">{{ data.member.user.email }}</div>
+          <div class="col-5 m-b-10">Role:</div>
+          <div class="col-7 pro-left m-b-10">{{ data.member.user.role }}</div>
+          <div class="col-5 m-b-10">Status:</div>
+          <div class="col-7 pro-left m-b-10">
+            {{ data.member.user.active ? "Active" : "Inactive" }}
+          </div>
+        </div>
+      </mat-card-content>
+    </div>
+  </div>
+</div>

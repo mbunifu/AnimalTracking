@@ -20,8 +20,15 @@ export class UserService {
     const farmerUrl = `${environment.baseUrl}/api/v1/farmers/get/all`;
     return this.httpclient.get<any>(farmerUrl)
   }
+  getFarmersById(farmerId: any): Observable<any> {
+    const farmerUrl = `${environment.baseUrl}/api/v1/farmers/get/by/farmerId/${farmerId}`;
+    return this.httpclient.get<any>(farmerUrl)
+  }
 
-
+  updateFarmersById(farmerId: any): Observable<any> {
+    const farmerUrl = `${environment.baseUrl}/api/v1/farmers/get/by/farmerId/${farmerId}`;
+    return this.httpclient.put<any>(farmerUrl, farmerId)
+  }
 
   getAdminUsers(): Observable<any[]> {
 

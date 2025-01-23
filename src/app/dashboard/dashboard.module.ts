@@ -22,6 +22,7 @@ import { MatPaginatorModule } from '@angular/material/paginator'; // Add this
 import { MatTableModule } from '@angular/material/table';
 import { MatProgressBarModule } from '@angular/material/progress-bar'; // Add this
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatSlideToggleModule,
     MatTooltipModule,
     MatProgressBarModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatDialogModule
   ]
 })
 export class DashboardModule { }
