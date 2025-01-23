@@ -41,13 +41,19 @@
                 </ng-container>
           
                 <ng-container matColumnDef="name">
-                  <th mat-header-cell *matHeaderCellDef style="padding: 8px;">Name</th>
-                  <td mat-cell *matCellDef="let element" style="padding: 8px;">{{ element.name }}</td>
+                  <th mat-header-cell *matHeaderCellDef style="padding: 8px;">First Name</th>
+                  <td mat-cell *matCellDef="let element" style="padding: 8px;">{{ element.user.firstName }} {{ element.user.lastName }}</td>
                 </ng-container>
+
+                <ng-container matColumnDef="phone">
+                  <th mat-header-cell *matHeaderCellDef style="padding: 8px;">Last Name</th>
+                  <td mat-cell *matCellDef="let element" style="padding: 8px;">{{ element.user.phoneNo }}</td>
+                </ng-container>
+
           
                 <ng-container matColumnDef="email">
                   <th mat-header-cell *matHeaderCellDef style="padding: 8px;">Email</th>
-                  <td mat-cell *matCellDef="let element" style="padding: 8px;">{{ element.email }}</td>
+                  <td mat-cell *matCellDef="let element" style="padding: 8px;">{{ element.user.email }}</td>
                 </ng-container>
           
                 <ng-container matColumnDef="status">
