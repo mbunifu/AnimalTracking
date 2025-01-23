@@ -11,14 +11,13 @@ export class UserService {
   constructor(private httpclient: HttpClient) { }
 
   public register
-
   getTotalAnimals(): Observable<any> {
-    const farmerUrl = `${environment.baseUrl}api/v1/farmAnimals/get/animal/count`;
+    const farmerUrl = `${environment.baseUrl}/api/v1/farmAnimals/get/animal/count`;
     return this.httpclient.get<any>(farmerUrl)
   }
 
   fetchUsers(): Observable<any> {
-    const farmerUrl = `${environment.baseUrl}api/v1/farmers/get/all`;
+    const farmerUrl = `${environment.baseUrl}/api/v1/farmers/get/all`;
     return this.httpclient.get<any>(farmerUrl)
   }
 }

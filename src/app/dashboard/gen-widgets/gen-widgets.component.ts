@@ -4,6 +4,7 @@ import { MatSnackBar } from "@angular/material/snack-bar";
 import { Router } from "@angular/router";
 import { NgbProgressbarModule } from "@ng-bootstrap/ng-bootstrap";
 import { Subject } from "rxjs";
+import { AuthService } from "src/app/core/service/auth.service";
 import { UserService } from "src/app/user/services/user.service";
 
 @Component({
@@ -11,27 +12,9 @@ import { UserService } from "src/app/user/services/user.service";
   templateUrl: "./gen-widgets.component.html",
   styleUrls: ["./gen-widgets.component.sass"],
 })
-export class GenWidgetsComponent implements OnInit, OnDestroy {
+export class GenWidgetsComponent implements OnInit {
 
-  destroy$: Subject<boolean> = new Subject<boolean>();
-  farmers: any[] = [];
-  farmersCount: number = 0;
-  customers: any[] = [];
-  customersCount: number = 0;
-  manufacturers: any[] = [];
-  manufacturersCount: number = 0;
-  serviceProviders: any[] = [];
-  providersCount: number = 0;
-  staff: any[] = [];
-  staffCount: number = 0;
-  warehouses: any[] = [];
-  warehoseCount: number = 0;
-  processors: any[] = [];
-  processorsCount: number = 0;
-  drivers: any[] = [];
-  driversCount: number = 0;
-  agrodealears: any[] = [];
-  agrodelearsCount: number = 0;
+
   color: ThemePalette = 'warn';
   mode: NgbProgressbarModule = 'determinate';
   value = 95;
@@ -39,31 +22,41 @@ export class GenWidgetsComponent implements OnInit, OnDestroy {
   totalAnimals: any;
 
   constructor(private userService: UserService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private authservice: AuthService
   ) { }
 
   ngOnInit(): void {
     this.fetchTotalAnimals();
   }
 
-  ngOnDestroy(): void {
-    this.destroy$.next(true);
-    this.destroy$.complete();
-  }
 
   fetchTotalAnimals(): void {
     this.userService.getTotalAnimals().subscribe(
-      (response: number) => {
-        console.log('Fetched total animals:', response);
-        this.totalAnimals = response;
+      (response: any) => {
+        console.log('Fetched total animals:', response.entity);
+        if (response && response.statusCode === 200) {
+          this.totalAnimals = response.entity.count;
+        } else {
+          console.warn('Unexpected response status:', response?.statusCode);
+          this.snackBar.open('Unexpected response from server', 'Close', {
+            duration: 3000,
+            panelClass: ['error-snackbar']
+          });
+        }
       },
-      (error) => {
-        console.error('Error fetching animals:', error);
-        this.snackBar.open('Error fetching total animals', 'Close', {
-          duration: 3000,
-          panelClass: ['error-snackbar']
-        });
-      }
+      // (error: any) => {
+      //   console.error('Error fetching animals:', error);
+      //   // Extract and display a meaningful error message
+      //   const errorMessage = error?.message
+      //     ? Error : ${ error.message }
+      //       : 'Error fetching total animals. Please try again later.';
+
+      //   this.snackBar.open(errorMessage, 'Close', {
+      //     duration: 3000,
+      //     panelClass: ['error-snackbar']
+      //   });
+      // }
     );
   }
 

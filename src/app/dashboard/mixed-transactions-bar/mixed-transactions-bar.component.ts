@@ -11,7 +11,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class MixedTransactionsBarComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
-  displayedColumns: string[] = ['id', 'name', 'email', 'status', 'actions'];
+  displayedColumns: string[] = ['id', 'name', 'email', 'isVerified', 'actions'];
   dataSource = new MatTableDataSource<any>([]);
 
   constructor(private userService: UserService, private snackBar: MatSnackBar) { }
@@ -20,47 +20,48 @@ export class MixedTransactionsBarComponent implements OnInit {
     this.fetchFarmers();
   }
 
-  fetchFarmers(): void {
-    this.userService.fetchUsers().subscribe(
-      (response: any) => {
-        this.dataSource.data = response;
-        this.dataSource.paginator = this.paginator;
-      },
-      (error) => {
-        console.error('Error fetching farmers:', error);
-
-        // Extract error message safely
-        let errorMessage = 'Error fetching farmers';
-        if (error && error.error && error.error.message) {
-          errorMessage = error.error.message;
-        } else if (error && error.message) {
-          errorMessage = error.message;
-        }
-
-        this.snackBar.open(errorMessage, 'Close', {
-          duration: 3000,
-          panelClass: ['error-snackbar']
-        });
-      }
-    );
-  }
-
-
   // fetchFarmers(): void {
   //   this.userService.fetchUsers().subscribe(
   //     (response: any) => {
-  //       this.dataSource.data = response;
+  //       this.dataSource.data = response.entity;
   //       this.dataSource.paginator = this.paginator;
+  //       console.log('Fetched Farmers:', response.message)
   //     },
   //     (error) => {
   //       console.error('Error fetching farmers:', error);
-  //       this.snackBar.open('Error fetching farmers', 'Close', {
+
+  //       // Extract error message safely
+  //       let errorMessage = 'Error fetching farmers';
+  //       if (error && error.error && error.error.message) {
+  //         errorMessage = error.error.message;
+  //       } else if (error && error.message) {
+  //         errorMessage = error.message;
+  //       }
+
+  //       this.snackBar.open(errorMessage, 'Close', {
   //         duration: 3000,
   //         panelClass: ['error-snackbar']
   //       });
   //     }
   //   );
   // }
+
+  fetchFarmers(): void {
+    this.userService.fetchUsers().subscribe(
+      (response: any) => {
+        this.dataSource.data = response.entity;
+        this.dataSource.paginator = this.paginator;
+        console.log('Fetched Farmers:', this.dataSource.data)
+      },
+      (error) => {
+        console.error('Error fetching farmers:', error);
+        this.snackBar.open('Error fetching farmers', 'Close', {
+          duration: 3000,
+          panelClass: ['error-snackbar']
+        });
+      }
+    );
+  }
 
   onEdit(element: any): void {
     console.log('Edit action clicked for:', element);
