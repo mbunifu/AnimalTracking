@@ -23,6 +23,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { SystemRolesComponent } from './system-roles/system-roles.component';
+import{MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 
@@ -51,7 +52,9 @@ import { SystemRolesComponent } from './system-roles/system-roles.component';
     MatPaginatorModule,
     MatSlideToggleModule,
     FormsModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatSnackBarModule
+
 ]
 })
 export class UserManagementModule { }

@@ -1,44 +1,60 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
-import { MatTableDataSource } from '@angular/material/table';
-
+import { _MatTableDataSource, MatTableDataSource } from '@angular/material/table';
 import { AddUsersComponent } from '../add-users/add-users.component'; 
-
+import{ UserService } from 'src/app/user/services/user.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
   styleUrls: [] // Inline styling used
 })
-export class UsersComponent implements OnInit, AfterViewInit {
+export class UsersComponent implements OnInit {
   filterOptions = ['All Users', 'Active Users', 'Deactivated Users'];
   selectedFilter = 'All Users';
-  totalUsers = 100; 
+  //totalUsers = 100;
+  totalUsers!: number;
+
   systemUsersIcon = 'group'; 
 
-  displayedColumns: string[] = ['id', 'name', 'email', 'status'];
-  dataSource = new MatTableDataSource([
-    { id: 1, name: 'Ekwang Etabo Logela', email: 'Davidkipchumbaruto@gmail.com', contactNumber: '123-456-7890', status: true },
-    { id: 2, name: 'Halima Gufu Waqo', email: 'emily@chomatech.co.ke', contactNumber: '098-765-4321', status: false },
-    { id: 3, name: 'Samuel Mutua Ndambuki', email: 'samuelutundambuki@gmail.co.ke', contactNumber: '555-123-4567', status: true },
-    { id: 4, name: 'Esther Chebet Kiplagat', email: 'esther@safaricredi.co.ke', contactNumber: '333-222-4444', status: false },
-    { id: 5, name: 'Lemaiyan Ole Nkaru', email: 'hello@kilimanjaroinnovation.co.ke', contactNumber: '777-888-9999', status: true },
-    { id: 6, name: 'Ekitela Ekidor Lokidor', email: 'support@masaifinance.co.ke', contactNumber: '111-222-3333', status: false },
-    { id: 7, name: 'Emma Davis', email: 'emma.davis@gmail.com', contactNumber: '444-555-6666', status: true },
-    { id: 8, name: 'Leah Lengolos Lesanjo', email: 'contact@jambobiz.co.ke', contactNumber: '999-000-1111', status: true },
-    { id: 9, name: 'Grace Wanyore', email: 'grace.wanyore@gmail.com', contactNumber: '222-333-4444', status: false },
-    { id: 10, name: 'Henry Ekadukoit', email: 'ekadukoite@gmail.com', contactNumber: '555-666-7777', status: true }
-  ]);
+  dataSource =  new  MatTableDataSource<any>([]);
 
+  displayedColumns: string[] = ['id', 'name', 'phone', 'email', 'status'];
+ 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private dialog: MatDialog) {}
+  constructor(
+    private snackBar: MatSnackBar,
+    private dialog: MatDialog,
+    private userService: UserService
+  ) {
 
-  ngOnInit(): void {}
-
-  ngAfterViewInit(): void {
-    this.dataSource.paginator = this.paginator;
+     
   }
+
+  ngOnInit(): void {
+    this.loadUsers();
+  }
+
+  loadUsers(): void {
+    this.userService.getAdminUsers().subscribe(
+      (response: any) => {
+        this.dataSource.data = response.entity;
+        this.dataSource.paginator = this.paginator;
+        this.totalUsers= response.entity.length;
+        console.log('Fetched admins:', this.dataSource.data)
+      },
+      (error) => {
+        console.error('Error fetching farmers:', error);
+        this.snackBar.open('Error fetching farmers', 'Close', {
+          duration: 3000,
+          panelClass: ['error-snackbar']
+        });
+      }
+    );
+  }
+
 
   openAddUserDialog(): void {
     const dialogRef = this.dialog.open(AddUsersComponent, {
