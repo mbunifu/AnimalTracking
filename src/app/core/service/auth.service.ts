@@ -15,7 +15,7 @@ const httpOptions = {
 export class AuthService {
   constructor(private http: HttpClient) { }
 
-  public login(user: any): Observable<Auth>{
+  public login(user: any): Observable<Auth> {
     return this.http.post<Auth>(`${environment.baseUrl}/api/v1/auth/authenticate`, user, httpOptions);
   }
 
@@ -45,4 +45,6 @@ export class AuthService {
 
     return this.http.post<{ message: string }>(resetPasswordUrl, params);
   }
+
+
 }
