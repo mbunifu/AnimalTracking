@@ -1,8 +1,10 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
 import { ThemePalette } from "@angular/material/core";
+import { MatSnackBar } from "@angular/material/snack-bar";
 import { Router } from "@angular/router";
 import { NgbProgressbarModule } from "@ng-bootstrap/ng-bootstrap";
 import { Subject } from "rxjs";
+import { UserService } from "src/app/user/services/user.service";
 
 @Component({
   selector: "app-gen-widgets",
@@ -12,11 +14,11 @@ import { Subject } from "rxjs";
 export class GenWidgetsComponent implements OnInit, OnDestroy {
 
   destroy$: Subject<boolean> = new Subject<boolean>();
-  farmers: any[] =[];
+  farmers: any[] = [];
   farmersCount: number = 0;
   customers: any[] = [];
   customersCount: number = 0;
-  manufacturers: any[] =[];
+  manufacturers: any[] = [];
   manufacturersCount: number = 0;
   serviceProviders: any[] = [];
   providersCount: number = 0;
@@ -34,18 +36,41 @@ export class GenWidgetsComponent implements OnInit, OnDestroy {
   mode: NgbProgressbarModule = 'determinate';
   value = 95;
   bufferValue = 95;
-  constructor(
- ) {}
+  totalAnimals: any;
+
+  constructor(private userService: UserService,
+    private snackBar: MatSnackBar
+  ) { }
 
   ngOnInit(): void {
-   
+    this.fetchTotalAnimals();
   }
 
   ngOnDestroy(): void {
     this.destroy$.next(true);
     this.destroy$.complete();
   }
-  
+
+  fetchTotalAnimals(): void {
+    this.userService.getTotalAnimals().subscribe(
+      (response: number) => {
+        console.log('Fetched total animals:', response);
+        this.totalAnimals = response;
+      },
+      (error) => {
+        console.error('Error fetching animals:', error);
+        this.snackBar.open('Error fetching total animals', 'Close', {
+          duration: 3000,
+          panelClass: ['error-snackbar']
+        });
+      }
+    );
+  }
+
+
+
+
+
   // private getCustomer(){
   //   this.customerService.getAllCustomers().subscribe({
   //     next: ((res) => {
