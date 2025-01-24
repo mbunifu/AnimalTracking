@@ -93,7 +93,7 @@ export class MixedTransactionsBarComponent implements OnInit {
 
     this.dialog.open(TransactionsComponent, {
       width: '600px',
-      height: '90%',
+      height: '600px',
       data: { user: element } // Pass data if needed
     });
   }

@@ -10,7 +10,7 @@
       <mat-card-content>
         <div class="row mt-1" style="width: 98%">
           <div class="col-5 m-b-10">Farmer ID:</div>
-          <div class="col-7 pro-left m-b-10">{{ member.id }}</div>
+          <div class="col-7 pro-left m-b-10">{{ member.user.id }}</div>
           <div class="col-5 m-b-10">Firstname:</div>
           <div class="col-7 pro-left m-b-10">{{ member.user.firstName }}</div>
           <div class="col-5 m-b-10">Lastname:</div>
@@ -19,8 +19,22 @@
           <div class="col-7 pro-left m-b-10">{{ member.user.phoneNo }}</div>
           <div class="col-5 m-b-10">Email:</div>
           <div class="col-7 pro-left m-b-10">{{ member.user.email }}</div>
+          <div class="col-5 m-b-10">Code:</div>
+          <div class="col-7 pro-left m-b-10">{{ member.user.farmerCode }}</div>
+          <div class="col-5 m-b-10">ID Number:</div>
+          <div class="col-7 pro-left m-b-10">{{ member.user.idNumber }}</div>
+          <div class="col-5 m-b-10">Location:</div>
+          <div class="col-7 pro-left m-b-10">
+            {{ member.user.location.latitude }},
+            {{ member.user.location.longitude }}
+          </div>
+
           <div class="col-5 m-b-10">Role:</div>
           <div class="col-7 pro-left m-b-10">{{ member.user.role }}</div>
+          <div class="col-5 m-b-10">Creation:</div>
+          <div class="col-7 pro-left m-b-10">
+            {{ member.user.createdAt | date : "yyyy-MM-dd" }}
+          </div>
           <div class="col-5 m-b-10">Status:</div>
           <div class="col-7 pro-left m-b-10">
             {{ member.user.active ? "Active" : "Inactive" }}

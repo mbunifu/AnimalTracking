@@ -27,11 +27,19 @@ export class TransactionsComponent implements OnInit {
       this.member = {
         id: this.data.farmerCode, // Farmer ID
         user: {
-          firstName: this.data.user.firstName,
-          lastName: this.data.user.lastName,
-          phoneNo: this.data.user.phoneNo,
-          email: this.data.user.email,
-          role: this.data.user.role,
+
+          firstName: this.data.user.user.firstName,
+          lastName: this.data.user.user.lastName,
+          phoneNo: this.data.user.user.phoneNo,
+          email: this.data.user.user.email,
+          farmerCode: this.data.user.farmerCode,
+          location: {
+            latitude: this.data.user.latitude,
+            longitude: this.data.user.longitude
+          },
+          idNumber: this.data.user.idNumber,
+          role: this.data.user.user.role,
+          createdAt: this.data.user.createdAt,
           active: this.data.user.active
         }
       };
