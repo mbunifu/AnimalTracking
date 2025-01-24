@@ -11,81 +11,94 @@
                 <div class="row">
                     <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 ">
                         <div class="info-box7 bg-c-white order-info-box7">
-                        <div class="info-box7-block">
+                            <div class="info-box7-block">
                                 <h6 class="tracking-text">Cumulative new borns <i class="fas fa-download"></i></h6>
-                                <h2 class="text-end tracking-text"><i class="fas fa-chart-bar"></i> <span>100400</span></h2>
+                                <h2 class="text-end tracking-text"><i class="fas fa-chart-bar"></i> <span>0.00</span>
+                                </h2>
                                 <p class="m-b-0" style="font-size: 17px; font-weight: 500;">Total Animals</p>
+                            </div>
                         </div>
-                        </div>
-                    </div> 
+                    </div>
 
                     <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 ">
                         <div class="info-box7 bg-c-white order-info-box7">
-                        <div class="info-box7-block">
+                            <div class="info-box7-block">
                                 <h6 class="tracking-text">Today's Sales <i class="fas fa-download"></i></h6>
-                                <h2 class="text-end tracking-text"><i class="fas fa-chart-bar"></i> <span>90000</span></h2>
+                                <h2 class="text-end tracking-text"><i class="fas fa-chart-bar"></i> <span>0.00</span>
+                                </h2>
                                 <p class="m-b-0" style="font-size: 17px; font-weight: 500;">Total Animals</p>
+                            </div>
                         </div>
-                        </div>
-                    </div> 
+                    </div>
 
                     <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 ">
                         <div class="info-box7 bg-c-white order-info-box7">
-                        <div class="info-box7-block">
+                            <div class="info-box7-block">
                                 <h6 class="tracking-text">Suspicious activities <i class="fas fa-download"></i></h6>
-                                <h2 class="text-end tracking-text"><i class="fas fa-chart-bar"></i> <span>5004</span></h2>
+                                <h2 class="text-end tracking-text"><i class="fas fa-chart-bar"></i> <span>0.00</span>
+                                </h2>
                                 <p class="m-b-0" style="font-size: 17px; font-weight: 500;">Total Animals</p>
+                            </div>
                         </div>
-                        </div>
-                    </div> 
+                    </div>
 
                     <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 ">
                         <div class="info-box7 bg-c-white order-info-box7">
-                        <div class="info-box7-block">
-                            <h6 class="tracking-text">Annual mapping target achievement <i class="fas fa-download"></i></h6>
-                            <h2 class="text-end tracking-text"> <span>95%</span></h2>
-                            <mat-progress-bar
-                                [color]="color"
-                                [mode]="mode"
-                                [value]="value"
-                                [bufferValue]="bufferValue">
-                            </mat-progress-bar>
-                            <p class="m-b-0" style="font-size: 17px; font-weight: 500;">Total Animals</p>
+                            <div class="info-box7-block">
+                                <h6 class="tracking-text">Annual mapping target achievement <i
+                                        class="fas fa-download"></i></h6>
+                                <h2 class="text-end tracking-text"> <span>0.00%</span></h2>
+                                <mat-progress-bar [color]="color" [mode]="mode" [value]="value"
+                                    [bufferValue]="bufferValue">
+                                </mat-progress-bar>
+                                <p class="m-b-0" style="font-size: 17px; font-weight: 500;">Total Animals</p>
+                            </div>
                         </div>
-                        </div>
-                    </div> 
-                    
+                    </div>
+
                 </div>
             </mat-card-content>
         </mat-card>
-        
+
         <mat-card>
             <form [formGroup]="searchForm">
                 <div class="row">
                     <div class="col-sm-3">
-                        <input class="form-control me-2" type="search" placeholder="Filter By County V" aria-label="Search">
+
+                        <mat-select class="form-control me-2" placeholder="Filter By County" formControlName="county">
+                            <mat-option *ngFor="let county of counties" [value]="county">{{ county }}</mat-option>
+                        </mat-select>
                     </div>
 
                     <div class="col-sm-3">
-                        <input class="form-control me-2" type="search" placeholder="Filter By Breed V" aria-label="Search">
+                        <mat-select class="form-control me-2" type="search" placeholder="Filter By Species" formControlName="species"  (selectionChange)="onSpeciesChange($event.value)">
+                            <mat-option *ngFor="let specie of species" [value]="specie.id">{{ specie.speciesName }}</mat-option>
+                        </mat-select>
+                        
+                    </div>
+                    <div class="col-sm-3">
+                        <mat-select class="form-control me-2" type="search" placeholder="Filter By Breed" formControlName="breed" aria-label="Search" matSuffix>
+                            <mat-option *ngFor="let breed of breeds" [value]="breed">{{ breed.breedName }}</mat-option>
+                        </mat-select>
                     </div>
 
                     <div class="col-sm-3">
-                        <input class="form-control me-2" type="search" placeholder="Filter By Date V" aria-label="Search">
+                        <input class="form-control me-2" type="search" placeholder="Filter By Date V"
+                            aria-label="Search">
                     </div>
 
-                    <div class="col-sm-3"> 
-                        <input class="form-control me-2" type="search" placeholder="Search By Animal type" aria-label="Search" matSuffix> 
-                    </div>
+                    
                 </div>
             </form>
-            
+
         </mat-card>
-          
+
         <mat-card>
             <mat-card-content>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d50446.644314689904!2d35.0047908!3d1.0160547!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x178226fff8c493c5%3A0x4053f910a811f35c!2sKitale!5e1!3m2!1sen!2ske!4v1733809010138!5m2!1sen!2ske" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </mat-card-content>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1021380.0950643454!2d36.15619673035001!3d0.29343506169241973!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x178635240419ec05%3A0x928ba7f70971d8de!2sLaikipia%20County!5e0!3m2!1sen!2ske!4v1737660531300!5m2!1sen!2ske"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe> </mat-card-content>
         </mat-card>
     </div>
 </section>
