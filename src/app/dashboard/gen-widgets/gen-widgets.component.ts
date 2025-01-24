@@ -20,6 +20,7 @@ export class GenWidgetsComponent implements OnInit {
   value = 95;
   bufferValue = 95;
   totalAnimals: any;
+  todaySales: any;
 
   constructor(private userService: UserService,
     private snackBar: MatSnackBar,
@@ -28,6 +29,7 @@ export class GenWidgetsComponent implements OnInit {
 
   ngOnInit(): void {
     this.fetchTotalAnimals();
+    this.fetchTodaySales();
   }
 
 
@@ -57,6 +59,31 @@ export class GenWidgetsComponent implements OnInit {
       //     panelClass: ['error-snackbar']
       //   });
       // }
+    );
+  }
+
+  fetchTodaySales(): void {
+    this.userService.getTodaySales().subscribe(
+      (response: any) => {
+        console.log('Fetched todays sales:', response.entity);
+        if (response && response.statusCode === 200) {
+          this.todaySales = response.entity.length;
+        } else {
+          console.warn('Unexpected response status:', response?.statusCode);
+          this.snackBar.open('Unexpected response from server', 'Close', {
+            duration: 3000,
+            panelClass: ['error-snackbar']
+          });
+        }
+      },
+    /*  (error) => {
+        console.error('Error fetching sales:', error);
+        this.snackBar.open('Error fetching sales', 'Close', {
+          duration: 3000,
+          panelClass: ['error-snackbar']
+        });
+      } */
+
     );
   }
 

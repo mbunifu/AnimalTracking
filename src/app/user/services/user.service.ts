@@ -16,6 +16,11 @@ export class UserService {
     return this.httpclient.get<any>(farmerUrl)
   }
 
+  getTodaySales(): Observable<any> {
+    const salesUrl = `${environment.baseUrl}/api/v1/transactions/fetch/all`;
+    return this.httpclient.get<any>(salesUrl)
+  }
+
   fetchUsers(): Observable<any> {
     const farmerUrl = `${environment.baseUrl}/api/v1/farmers/get/all`;
     return this.httpclient.get<any>(farmerUrl)
