@@ -142,7 +142,7 @@ export const ROUTES: RouteInfo[] = [
         title: "Roles",
         moduleName: "user-management",
         iconType: "feather",
-        icon: "user",
+        icon: "",
         class: "",
         groupTitle: false,
         badge: "",
@@ -165,6 +165,21 @@ export const ROUTES: RouteInfo[] = [
       //   submenu: [],
       // },
     ],
+  },
+
+
+  {
+    path: "./vetenary-management/vetenary",
+    title: "Vetenary Management",
+    moduleName: "vetenary-management",
+    iconType: "feather",
+    icon: "life-buoy",
+    class: "",
+    groupTitle: false,
+    badge: "",
+    badgeClass: "",
+    role: ["ADMIN"],
+    submenu: [],
   },
 
   {

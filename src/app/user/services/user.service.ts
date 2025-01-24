@@ -37,4 +37,12 @@ export class UserService {
     return this.httpclient.get<any[]>(usersUrl);
   }
 
+  getServiceProviders(): Observable<any[]> {
+
+    const provUrl = `${environment.baseUrl}/api/v1/serviceProvider/get/all`;
+
+    return this.httpclient.get<any[]>(provUrl);
+  }
+
+
 }

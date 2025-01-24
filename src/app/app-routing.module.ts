@@ -70,6 +70,12 @@ const routes: Routes = [
   loadChildren: () =>
     import("./user-management/user-management.module").then((m) => m.UserManagementModule),
 },
+
+{
+  path: "vetenary-management",
+  loadChildren: () =>
+    import("./vetenary-management/vetenary-management.module").then((m) => m.VetenaryManagementModule),
+},
   
 
   
