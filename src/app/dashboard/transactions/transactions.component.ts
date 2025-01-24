@@ -1,7 +1,6 @@
-import { Component, Inject, OnInit, ViewChild } from '@angular/core';
-import { UserService } from "src/app/user/services/user.service";
+import { Component, Inject, OnInit } from '@angular/core';
+import { UserService } from 'src/app/user/services/user.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { MatDialog } from '@angular/material/dialog';
 import { SnackbarService } from 'src/app/shared/services/snackbar.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
@@ -12,7 +11,6 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 })
 export class TransactionsComponent implements OnInit {
   member: any;
-  memberId: number;
 
   constructor(
     private userService: UserService,
@@ -23,6 +21,21 @@ export class TransactionsComponent implements OnInit {
 
   ngOnInit(): void {
     console.log('Received data:', this.data);
+
+    // Check if data is already passed when opening the dialog
+    if (this.data?.user) {
+      this.member = {
+        id: this.data.farmerCode, // Farmer ID
+        user: {
+          firstName: this.data.user.firstName,
+          lastName: this.data.user.lastName,
+          phoneNo: this.data.user.phoneNo,
+          email: this.data.user.email,
+          role: this.data.user.role,
+          active: this.data.user.active
+        }
+      };
+    }
   }
 
   fetchFarmerDetails(farmerId: number): void {
@@ -30,6 +43,19 @@ export class TransactionsComponent implements OnInit {
       (response: any) => {
         console.log('Farmer Data:', response.entity);
 
+        if (response.entity) {
+          this.member = {
+            id: response.entity.farmerCode,
+            user: {
+              firstName: response.entity.user.firstName,
+              lastName: response.entity.user.lastName,
+              phoneNo: response.entity.user.phoneNo,
+              email: response.entity.user.email,
+              role: response.entity.user.role,
+              active: response.entity.user.active
+            }
+          };
+        }
       },
       (error) => {
         console.error('Error fetching farmer details:', error);
@@ -41,15 +67,7 @@ export class TransactionsComponent implements OnInit {
     );
   }
 
-  onView(element: any): void {
-    console.log('View action clicked for:', element);
-    this.fetchFarmerDetails(element.id);
+  closeDialog(): void {
+    this.dialogRef.close();
   }
-
-  // openViewDialog(farmerData: any): void {
-  //   this.dialog.open(ViewFarmerDialogComponent, {
-  //     width: '450px',
-  //     data: { member: farmerData }
-  //   });
-  // }
 }
