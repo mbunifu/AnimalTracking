@@ -22,6 +22,8 @@ export class UsersComponent implements OnInit {
 
   displayedColumns: string[] = ['id', 'name', 'phone', 'email', 'status'];
 
+  // displayedColumns: string[] = ['id', 'name', 'phone', 'email', 'status'];
+
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(
