@@ -1,33 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
-import {
-  ChartComponent,
-  ApexAxisChartSeries,
-  ApexChart,
-  ApexXAxis,
-  ApexDataLabels,
-  ApexStroke,
-  ApexMarkers,
-  ApexYAxis,
-  ApexGrid,
-  ApexTitleSubtitle,
-  ApexLegend
-} from "ng-apexcharts";
-
-export type ChartOptions = {
-  series: ApexAxisChartSeries;
-  chart: ApexChart;
-  xaxis: ApexXAxis;
-  stroke: ApexStroke;
-  dataLabels: ApexDataLabels;
-  markers: ApexMarkers;
-  tooltip: any; // ApexTooltip;
-  yaxis: ApexYAxis;
-  grid: ApexGrid;
-  legend: ApexLegend;
-  title: ApexTitleSubtitle;
-};
-
+import { MatTableDataSource } from '@angular/material/table';
+import { UserService } from 'src/app/user/services/user.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatDialog } from '@angular/material/dialog';
+import { TransactionsComponent } from '../transactions/transactions.component';
 
 @Component({
   selector: 'app-mixed-transactions-bar',
@@ -35,150 +12,97 @@ export type ChartOptions = {
   styleUrls: ['./mixed-transactions-bar.component.sass']
 })
 export class MixedTransactionsBarComponent implements OnInit {
-  @ViewChild("chart") chart: ChartComponent;
-  public chartOptions: Partial<ChartOptions>;
-  displyedColumns: string[] = ['id', 'name', 'email', 'contactNumber', 'status'];
-  // dataSource: any;
-  responseMessage: any;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
+  displayedColumns: string[] = ['id', 'name', 'email', 'isVerified', 'actions'];
+  dataSource = new MatTableDataSource<any>([]);
 
-  displayedColumns: string[] = ['id', 'name', 'email', 'actions'];
-  dataSource = [
-    // { id: 1, name: 'John Doe', email: 'john.doe@gmail.com', status: 'approved' },
-    // { id: 2, name: 'Jane Smith', email: 'jane.smith@gmail.com', status: 'pending' },
-    // { id: 3, name: 'Mike Brown', email: 'mike.brown@gmail.com', status: 'approved' },
-    // { id: 4, name: 'Mike Yellow', email: 'mike.yellow@gmail.com', status: 'pending' },
-
-    { id: 1, name: 'Ekwang Etabo Logela', email: 'Davidkipchumbaruto@gmail.com', contactNumber: '123-456-7890', status: 'approved' },
-    { id: 2, name: 'Halima Gufu Waqo', email: 'emily@chomatech.co.ke', contactNumber: '098-765-4321', status: 'pending' },
-    { id: 3, name: 'Samuel Mutua Ndambuki', email: 'samuelutundambuki@gmail.co.ke', contactNumber: '555-123-4567', status: 'pending' },
-    { id: 4, name: 'Esther Chebet Kiplagat', email: 'esther@safaricredi.co.ke', contactNumber: '333-222-4444', status: 'approved' },
-    { id: 5, name: 'Lemaiyan Ole Nkaru', email: 'hello@kilimanjaroinnovation.co.ke', contactNumber: '777-888-9999', status: 'pending' },
-    { id: 6, name: 'Ekitela Ekidor Lokidor', email: 'support@masaifinance.co.ke', contactNumber: '111-222-3333', status: 'approved' },
-    { id: 7, name: 'Emma Davis', email: 'emma.davis@gmail.com', contactNumber: '444-555-6666', status: 'approved' },
-    { id: 8, name: 'Leah Lengolos Lesanjo', email: 'contact@jambobiz.co.ke', contactNumber: '999-000-1111', status: 'pending' },
-    { id: 9, name: 'Grace Wanyore', email: 'grace.wanyore@gmail.com', contactNumber: '222-333-4444', status: 'approved' },
-    { id: 10, name: 'Henry Ekadukoit', email: 'ekadukoite@gmail.com', contactNumber: '555-666-7777', status: 'approved' }
-  ];
-  
-
-  constructor() {
-    this.chartOptions = {
-      series: [
-        {
-          name: "Warehouses-Farmers",
-          data: [45, 52, 38, 24, 33, 26, 21, 20, 6, 8, 15, 10]
-        },
-        {
-          name: "Manufacture-Farmer",
-          data: [35, 41, 62, 42, 13, 18, 29, 37, 36, 51, 32, 35]
-        },
-        {
-          name: "Processor-Farmer",
-          data: [87, 57, 74, 99, 75, 38, 62, 47, 82, 56, 45, 47]
-        }
-      ],
-      chart: {
-        height: 500,
-        type: "line"
-      },
-      dataLabels: {
-        enabled: false
-      },
-      stroke: {
-        width: 5,
-        curve: "straight",
-        dashArray: [0, 8, 5]
-      },
-      title: {
-        // text: "Transactions accross farmer",
-        align: "left"
-      },
-      legend: {
-        tooltipHoverFormatter: function(val, opts) {
-          return (
-            val +
-            " - <strong>" +
-            opts.w.globals.series[opts.seriesIndex][opts.dataPointIndex] +
-            "</strong>"
-          );
-        }
-      },
-      markers: {
-        size: 0,
-        hover: {
-          sizeOffset: 6
-        }
-      },
-      xaxis: {
-        labels: {
-          trim: false
-        },
-        categories: [
-          "01 Jan",
-          "02 Jan",
-          "03 Jan",
-          "04 Jan",
-          "05 Jan",
-          "06 Jan",
-          "07 Jan",
-          "08 Jan",
-          "09 Jan",
-          "10 Jan",
-          "11 Jan",
-          "12 Jan"
-        ]
-      },
-      tooltip: {
-        y: [
-          {
-            title: {
-              formatter: function(val) {
-                return val + " (Ksh)";
-              }
-            }
-          },
-          {
-            title: {
-              formatter: function(val) {
-                return val + " Ksh";
-              }
-            }
-          },
-          {
-            title: {
-              formatter: function(val) {
-                return val + " Ksh";
-              }
-            }
-          }
-        ]
-      },
-      grid: {
-        borderColor: "#f1f1f1"
-      }
-    };
-   }
+  constructor(private userService: UserService, private snackBar: MatSnackBar,
+    private dialog: MatDialog
+  ) { }
 
   ngOnInit(): void {
+    this.fetchFarmers();
   }
 
+  // fetchFarmers(): void {
+  //   this.userService.fetchUsers().subscribe(
+  //     (response: any) => {
+  //       this.dataSource.data = response.entity;
+  //       this.dataSource.paginator = this.paginator;
+  //       console.log('Fetched Farmers:', response.message)
+  //     },
+  //     (error) => {
+  //       console.error('Error fetching farmers:', error);
+
+  //       // Extract error message safely
+  //       let errorMessage = 'Error fetching farmers';
+  //       if (error && error.error && error.error.message) {
+  //         errorMessage = error.error.message;
+  //       } else if (error && error.message) {
+  //         errorMessage = error.message;
+  //       }
+
+  //       this.snackBar.open(errorMessage, 'Close', {
+  //         duration: 3000,
+  //         panelClass: ['error-snackbar']
+  //       });
+  //     }
+  //   );
+  // }
+
+  fetchFarmers(): void {
+    this.userService.fetchUsers().subscribe(
+      (response: any) => {
+        this.dataSource.data = response.entity;
+        this.dataSource.paginator = this.paginator;
+        console.log('Fetched Farmers:', this.dataSource.data)
+      },
+      (error) => {
+        console.error('Error fetching farmers:', error);
+        this.snackBar.open('Error fetching farmers', 'Close', {
+          duration: 3000,
+          panelClass: ['error-snackbar']
+        });
+      }
+    );
+  }
 
   onEdit(element: any): void {
     console.log('Edit action clicked for:', element);
+    this.userService.updateFarmersById(element.id,).subscribe(
+      (response) => {
+        console.log('Update successful:', response);
+        this.snackBar.open('Farmer updated successfully!', 'Close', {
+          duration: 3000,
+          panelClass: ['success-snackbar']
+        });
+      },
+      (error) => {
+        console.error('Error updating farmer:', error);
+        this.snackBar.open('Failed to update farmer', 'Close', {
+          duration: 3000,
+          panelClass: ['error-snackbar']
+        });
+      }
+    );
   }
-  
+
+
   onView(element: any): void {
     console.log('View action clicked for:', element);
+
+    this.dialog.open(TransactionsComponent, {
+      width: '600px',
+      height: '90%',
+      data: { user: element } // Pass data if needed
+    });
   }
-  
+
   onVerify(element: any): void {
     console.log('Verify action clicked for:', element);
   }
-  
+
   onMoreOptions(element: any): void {
     console.log('More options clicked for:', element);
   }
-  
-
 }

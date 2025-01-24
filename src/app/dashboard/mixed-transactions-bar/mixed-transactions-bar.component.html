@@ -1,30 +1,57 @@
-<div class="responsive_table" style="width: 100%; overflow-x: auto;">
-  <table mat-table [dataSource]="dataSource" class="mat-cell" style="width: 100%; table-layout: auto;">
+<div class="responsive_table" style="width: 100%; overflow-x: auto">
+  <table
+    mat-table
+    [dataSource]="dataSource"
+    class="mat-cell"
+    style="width: 100%; table-layout: auto"
+  >
     <!-- ID Column -->
     <ng-container matColumnDef="id">
-      <th mat-header-cell *matHeaderCellDef> ID </th>
-      <td mat-cell *matCellDef="let element; let i = index"> {{ i + 1 }} </td>
+      <th mat-header-cell *matHeaderCellDef>ID</th>
+      <td mat-cell *matCellDef="let element; let i = index">{{ i + 1 }}</td>
     </ng-container>
 
     <!-- Name Column -->
     <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef> Name </th>
-      <td mat-cell *matCellDef="let element"> {{ element.name }} </td>
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.user.firstName }} {{ element.user.lastName }}
+      </td>
     </ng-container>
 
     <!-- Email Column -->
     <ng-container matColumnDef="email">
-      <th mat-header-cell *matHeaderCellDef> Email </th>
-      <td mat-cell *matCellDef="let element"> {{ element.email }} </td>
+      <th mat-header-cell *matHeaderCellDef>Email</th>
+      <td mat-cell *matCellDef="let element">{{ element.user.email }}</td>
+    </ng-container>
+    <ng-container matColumnDef="isVerified">
+      <th mat-header-cell *matHeaderCellDef>status</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.isVerified }}
+      </td>
     </ng-container>
 
     <ng-container matColumnDef="actions">
-      <th mat-header-cell *matHeaderCellDef> Actions </th>
-      <td mat-cell *matCellDef="let element" style="display: flex; gap: 8px; justify-content: center;">
-        <button mat-icon-button color="primary" (click)="onEdit(element)" matTooltip="Edit">
+      <th mat-header-cell *matHeaderCellDef>Actions</th>
+      <td
+        mat-cell
+        *matCellDef="let element"
+        style="display: flex; gap: 8px; justify-content: center"
+      >
+        <button
+          mat-icon-button
+          color="primary"
+          (click)="onEdit(element)"
+          matTooltip="Edit"
+        >
           <mat-icon>edit</mat-icon>
         </button>
-        <button mat-icon-button color="accent" (click)="onView(element)" matTooltip="View">
+        <button
+          mat-icon-button
+          color="accent"
+          (click)="onView(element)"
+          matTooltip="View"
+        >
           <mat-icon>visibility</mat-icon>
         </button>
         <button
@@ -35,7 +62,11 @@
         >
           <mat-icon>verified</mat-icon>
         </button>
-        <button mat-icon-button (click)="onMoreOptions(element)" matTooltip="More">
+        <button
+          mat-icon-button
+          (click)="onMoreOptions(element)"
+          matTooltip="More"
+        >
           <mat-icon>more_vert</mat-icon>
         </button>
       </td>
@@ -45,5 +76,8 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
   </table>
 
-  <mat-paginator [pageSizeOptions]="[2, 5, 10, 25, 50]" showFirstLastButtons></mat-paginator>
+  <mat-paginator
+    [pageSizeOptions]="[2, 5, 10, 25, 50]"
+    showFirstLastButtons
+  ></mat-paginator>
 </div>

@@ -21,6 +21,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatPaginatorModule } from '@angular/material/paginator'; // Add this
 import { MatTableModule } from '@angular/material/table';
 import { MatProgressBarModule } from '@angular/material/progress-bar'; // Add this
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -49,6 +51,8 @@ import { MatProgressBarModule } from '@angular/material/progress-bar'; // Add th
     MatSlideToggleModule,
     MatTooltipModule,
     MatProgressBarModule,
+    MatSnackBarModule,
+    MatDialogModule
   ]
 })
 export class DashboardModule { }
