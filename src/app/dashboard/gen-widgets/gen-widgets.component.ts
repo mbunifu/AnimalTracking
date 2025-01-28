@@ -17,8 +17,8 @@ export class GenWidgetsComponent implements OnInit {
 
   color: ThemePalette = 'warn';
   mode: NgbProgressbarModule = 'determinate';
-  value = 95;
-  bufferValue = 95;
+  value = 1;
+  bufferValue = 1;
   totalAnimals: any;
   todaySales: any;
 
@@ -76,13 +76,13 @@ export class GenWidgetsComponent implements OnInit {
           });
         }
       },
-    /*  (error) => {
-        console.error('Error fetching sales:', error);
-        this.snackBar.open('Error fetching sales', 'Close', {
-          duration: 3000,
-          panelClass: ['error-snackbar']
-        });
-      } */
+      /*  (error) => {
+          console.error('Error fetching sales:', error);
+          this.snackBar.open('Error fetching sales', 'Close', {
+            duration: 3000,
+            panelClass: ['error-snackbar']
+          });
+        } */
 
     );
   }
